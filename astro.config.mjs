@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gearedup.example.com', // Placeholder - update with actual domain
+  site: process.env.PUBLIC_SITE_URL || 'https://gearedup-production.up.railway.app',
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/embed/'),
