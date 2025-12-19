@@ -1,0 +1,127 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { getCategoryBySlug } from '@/data/categories';
+
+interface Props {
+  category: string;
+}
+
+const { category } = Astro.props;
+const categoryInfo = getCategoryBySlug(category);
+
+// Get all recommendations for this category
+const allRecommendations = await getCollection('recommendations', ({ data }) => {
+  return data.category === category && !data.draft;
+});
+
+// Sort by last updated
+const recommendations = allRecommendations.sort((a, b) =>
+  new Date(b.data.lastUpdated).getTime() - new Date(a.data.lastUpdated).getTime()
+);
+
+const title = `${categoryInfo?.name || category} Gear Recommendations`;
+const description = categoryInfo?.metaDescription || `Find the best ${category} gear with our curated recommendations.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container-narrow py-8 md:py-12">
+    <!-- Header -->
+    <header class="mb-10">
+      <nav class="text-sm text-neutral-500 mb-4">
+        <a href="/" class="hover:text-brand-600 transition-colors">Home</a>
+        <span class="mx-2 text-neutral-300">/</span>
+        <span class="text-neutral-700 font-medium">{categoryInfo?.name || category}</span>
+      </nav>
+
+      <h1 class="heading-lg mb-4">{title}</h1>
+      <p class="text-lg text-neutral-600 leading-relaxed max-w-2xl">
+        {categoryInfo?.description || `Explore our curated recommendations for ${category} enthusiasts.`}
+      </p>
+    </header>
+
+    <!-- Recommendations Grid -->
+    {recommendations.length > 0 ? (
+      <div class="grid gap-6">
+        {recommendations.map((rec) => (
+          <a
+            href={`/${rec.slug}/`}
+            class="block bg-white rounded-2xl border border-neutral-200 p-6 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 group"
+          >
+            <div class="flex flex-col md:flex-row gap-6">
+              <!-- Thumbnail -->
+              <div class="md:w-1/4">
+                <div class="bg-neutral-50 rounded-xl p-4 h-full flex items-center justify-center">
+                  <img
+                    src={rec.data.quickAnswer.image}
+                    alt={rec.data.title}
+                    class="w-full h-32 object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="md:w-3/4">
+                <h2 class="text-xl font-bold text-neutral-900 mb-2 group-hover:text-brand-600 transition-colors">
+                  {rec.data.title}
+                </h2>
+                <p class="text-neutral-600 mb-4 line-clamp-2">
+                  {rec.data.metaDescription}
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 text-sm text-neutral-500">
+                  <span class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {rec.data.products.length} products
+                  </span>
+                  <span class="flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Updated {new Date(rec.data.lastUpdated).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                  </span>
+                </div>
+
+                <div class="mt-4 flex items-center text-brand-600 font-medium">
+                  <span>Read guide</span>
+                  <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-16">
+        <div class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold text-neutral-900 mb-2">Coming Soon</h2>
+        <p class="text-neutral-600">
+          We're working on recommendations for this category. Check back soon!
+        </p>
+      </div>
+    )}
+
+    <!-- Back to Home -->
+    <div class="mt-12 pt-8 border-t border-neutral-200">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-medium transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        All Categories
+      </a>
+    </div>
+  </div>
+</BaseLayout>

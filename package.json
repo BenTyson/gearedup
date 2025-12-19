@@ -1,0 +1,18 @@
+{
+  "name": "gearedup",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --port 4488",
+    "build": "astro build",
+    "preview": "astro preview --port 4488 --host 0.0.0.0",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.6",
+    "tailwindcss": "^4.1.18"
+  }
+}

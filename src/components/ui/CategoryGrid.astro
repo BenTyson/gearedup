@@ -1,0 +1,74 @@
+---
+import { categories, type Category } from '@/data/categories';
+
+interface Props {
+  showDescription?: boolean;
+  class?: string;
+}
+
+const { showDescription = true, class: className = '' } = Astro.props;
+
+// Icon mapping for categories
+const icons: Record<string, string> = {
+  scissors: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"/></svg>`,
+  dice: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>`,
+  brush: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>`,
+  yarn: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>`,
+};
+
+// Color mapping for gradient backgrounds
+const colorClasses: Record<string, { bg: string; text: string; hover: string }> = {
+  quilting: {
+    bg: 'from-pink-50 to-pink-100',
+    text: 'text-pink-600',
+    hover: 'group-hover:from-pink-100 group-hover:to-pink-200',
+  },
+  'board-gaming': {
+    bg: 'from-violet-50 to-violet-100',
+    text: 'text-violet-600',
+    hover: 'group-hover:from-violet-100 group-hover:to-violet-200',
+  },
+  miniatures: {
+    bg: 'from-amber-50 to-amber-100',
+    text: 'text-amber-600',
+    hover: 'group-hover:from-amber-100 group-hover:to-amber-200',
+  },
+  knitting: {
+    bg: 'from-rose-50 to-rose-100',
+    text: 'text-rose-600',
+    hover: 'group-hover:from-rose-100 group-hover:to-rose-200',
+  },
+};
+---
+
+<div class:list={['grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6', className]}>
+  {categories.map((category) => {
+    const colors = colorClasses[category.slug] || colorClasses['quilting'];
+    const icon = icons[category.icon] || icons['scissors'];
+
+    return (
+      <a href={`/${category.slug}/`} class="category-card group">
+        <div class={`w-16 h-16 rounded-2xl bg-gradient-to-br ${colors.bg} ${colors.hover} flex items-center justify-center mb-4 transition-all duration-300`}>
+          <span class={colors.text} set:html={icon} />
+        </div>
+
+        <h3 class="text-lg font-bold text-neutral-900 mb-2 group-hover:text-brand-600 transition-colors">
+          {category.name}
+        </h3>
+
+        {showDescription && (
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            {category.description}
+          </p>
+        )}
+
+        <div class="mt-4 flex items-center text-brand-600 font-medium text-sm">
+          <span>Browse gear</span>
+          <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </a>
+    );
+  })}
+</div>

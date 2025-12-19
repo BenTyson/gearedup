@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import BestXForYLayout from '@layouts/BestXForYLayout.astro';
+
+export async function getStaticPaths() {
+  const recommendations = await getCollection('recommendations', ({ data }) => !data.draft);
+
+  return recommendations.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+
+<BestXForYLayout entry={entry} />

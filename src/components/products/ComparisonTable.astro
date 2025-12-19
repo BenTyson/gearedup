@@ -1,0 +1,69 @@
+---
+import type { Product } from '@content/config';
+
+interface Props {
+  products: Product[];
+}
+
+const { products } = Astro.props;
+
+const rankLabels: Record<string, string> = {
+  'best-overall': 'Best Overall',
+  'best-budget': 'Best Budget',
+  'best-premium': 'Best Premium',
+  'runner-up': 'Runner Up',
+};
+---
+
+<div class="overflow-x-auto mb-10">
+  <table class="w-full border-collapse bg-white rounded-xl overflow-hidden shadow-soft">
+    <thead>
+      <tr class="bg-neutral-50 border-b border-neutral-200">
+        <th class="text-left p-4 font-semibold text-neutral-900">Product</th>
+        <th class="text-left p-4 font-semibold text-neutral-900 hidden md:table-cell">Best For</th>
+        <th class="text-center p-4 font-semibold text-neutral-900">Price</th>
+        <th class="text-center p-4 font-semibold text-neutral-900 w-24"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {products.map((product, i) => (
+        <tr class="border-b border-neutral-100 hover:bg-neutral-50 transition-colors">
+          <td class="p-4">
+            <div class="flex items-center gap-3">
+              <img
+                src={product.image}
+                alt={product.name}
+                class="w-12 h-12 object-contain bg-neutral-100 rounded-lg hidden sm:block"
+                loading="lazy"
+              />
+              <div>
+                <div class="font-semibold text-neutral-900">
+                  {product.brand} {product.name}
+                </div>
+                {product.rank && (
+                  <span class="text-xs text-brand-600 font-medium">
+                    {rankLabels[product.rank]}
+                  </span>
+                )}
+              </div>
+            </div>
+          </td>
+          <td class="p-4 text-neutral-600 text-sm hidden md:table-cell">
+            {product.bestFor}
+          </td>
+          <td class="p-4 text-center font-semibold text-neutral-900">
+            ~${product.price}
+          </td>
+          <td class="p-4 text-center">
+            <a
+              href={`#product-${i + 1}`}
+              class="text-brand-600 hover:text-brand-700 font-medium text-sm"
+            >
+              Details →
+            </a>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

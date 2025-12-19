@@ -1,0 +1,167 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import QuickAnswer from '@components/products/QuickAnswer.astro';
+import ComparisonTable from '@components/products/ComparisonTable.astro';
+import ProductCard from '@components/products/ProductCard.astro';
+import FAQAccordion from '@components/ui/FAQAccordion.astro';
+import FAQSchema from '@components/seo/FAQSchema.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCategoryBySlug } from '@/data/categories';
+
+interface Props {
+  entry: CollectionEntry<'recommendations'>;
+}
+
+const { entry } = Astro.props;
+const { data, render } = entry;
+const { Content } = await render();
+
+const {
+  title,
+  metaDescription,
+  category,
+  lastUpdated,
+  quickAnswer,
+  products,
+  methodology,
+  faqs,
+} = data;
+
+const categoryInfo = getCategoryBySlug(category);
+const formattedDate = new Date(lastUpdated).toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
+
+// Build FAQ schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title={title}
+  description={metaDescription}
+  schema={faqSchema}
+>
+  <article class="container-narrow py-8 md:py-12">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-neutral-500 mb-6" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 flex-wrap">
+        <li>
+          <a href="/" class="hover:text-brand-600 transition-colors">Home</a>
+        </li>
+        <li class="text-neutral-300">/</li>
+        <li>
+          <a href={`/${category}/`} class="hover:text-brand-600 transition-colors capitalize">
+            {categoryInfo?.name || category}
+          </a>
+        </li>
+        <li class="text-neutral-300">/</li>
+        <li class="text-neutral-700 font-medium truncate max-w-[200px]">
+          {title}
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-8">
+      <h1 class="heading-lg mb-4">{title}</h1>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-neutral-500">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Updated: {formattedDate}
+        </span>
+        <span class="text-neutral-300">|</span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          {products.length} products reviewed
+        </span>
+      </div>
+    </header>
+
+    <!-- Quick Answer Box -->
+    <QuickAnswer product={quickAnswer} pageTitle={title} />
+
+    <!-- Affiliate Disclosure -->
+    <div class="bg-neutral-50 border border-neutral-200 rounded-xl px-4 py-3 mb-10">
+      <p class="text-sm text-neutral-600">
+        <strong class="text-neutral-700">Disclosure:</strong> We may earn a commission if you purchase through our links.
+        This doesn't affect our recommendations—we only suggest products we genuinely believe in.
+        <a href="/disclosure/" class="text-brand-600 hover:underline">Learn more</a>.
+      </p>
+    </div>
+
+    <!-- Intro Content (from markdown body) -->
+    {Content && (
+      <div class="prose-gearedup mb-10">
+        <Content />
+      </div>
+    )}
+
+    <!-- Quick Comparison Table -->
+    <section class="mb-12">
+      <h2 class="heading-sm mb-6">Quick Comparison</h2>
+      <ComparisonTable products={products} />
+    </section>
+
+    <!-- Detailed Product Reviews -->
+    <section class="mb-12">
+      <h2 class="heading-sm mb-8">Detailed Reviews</h2>
+      <div class="space-y-8">
+        {products.map((product, i) => (
+          <ProductCard product={product} index={i + 1} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="mb-12">
+      <div class="bg-neutral-50 rounded-2xl p-6 md:p-8">
+        <h2 class="heading-sm mb-4 flex items-center gap-2">
+          <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+          </svg>
+          How We Chose
+        </h2>
+        <div class="prose-gearedup" set:html={methodology} />
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-12">
+      <h2 class="heading-sm mb-6">Frequently Asked Questions</h2>
+      <FAQAccordion faqs={faqs} />
+    </section>
+
+    <!-- Back to Category -->
+    <div class="pt-8 border-t border-neutral-200">
+      <a
+        href={`/${category}/`}
+        class="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-medium transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to {categoryInfo?.name || category}
+      </a>
+    </div>
+  </article>
+
+  <!-- FAQ Schema (hidden in head) -->
+  <FAQSchema faqs={faqs} />
+</BaseLayout>

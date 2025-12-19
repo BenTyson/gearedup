@@ -1,0 +1,100 @@
+---
+import type { Product } from '@content/config';
+import AffiliateLink from './AffiliateLink.astro';
+
+interface Props {
+  product: Product;
+  index: number;
+}
+
+const { product, index } = Astro.props;
+
+const rankConfig: Record<string, { label: string; class: string }> = {
+  'best-overall': { label: 'Best Overall', class: 'badge-best-overall' },
+  'best-budget': { label: 'Best Budget', class: 'badge-best-budget' },
+  'best-premium': { label: 'Best Premium', class: 'badge-best-premium' },
+  'runner-up': { label: 'Runner Up', class: 'badge-runner-up' },
+};
+
+const rank = product.rank ? rankConfig[product.rank] : null;
+---
+
+<article class="product-card" id={`product-${index}`}>
+  {rank && (
+    <div class={`absolute -top-3 left-6 badge ${rank.class}`}>
+      {rank.label}
+    </div>
+  )}
+
+  <div class="flex flex-col lg:flex-row gap-6">
+    <!-- Product Image -->
+    <div class="lg:w-1/4">
+      <div class="bg-neutral-50 rounded-xl p-4">
+        <img
+          src={product.image}
+          alt={`${product.brand} ${product.name}`}
+          class="w-full h-40 object-contain"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- Product Details -->
+    <div class="lg:w-3/4">
+      <h3 class="text-xl font-bold text-neutral-900 mb-1">
+        {index}. {product.brand} {product.name}
+      </h3>
+      <p class="text-sm text-neutral-500 mb-3">Best for: {product.bestFor}</p>
+      <p class="text-neutral-700 mb-4 leading-relaxed">{product.verdict}</p>
+
+      <!-- Pros & Cons Grid -->
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <!-- Pros -->
+        <div>
+          <h4 class="font-semibold text-brand-700 mb-2 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            Pros
+          </h4>
+          <ul class="pros-list">
+            {product.pros.map((pro) => (
+              <li class="pros-item">
+                <svg class="pros-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-sm">{pro}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Cons -->
+        <div>
+          <h4 class="font-semibold text-red-600 mb-2 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+            </svg>
+            Cons
+          </h4>
+          <ul class="pros-list">
+            {product.cons.map((con) => (
+              <li class="pros-item">
+                <svg class="cons-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-sm">{con}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Price & CTA -->
+      <div class="flex flex-wrap items-center justify-between pt-4 border-t border-neutral-100 gap-4">
+        <span class="text-2xl font-bold text-neutral-900">~${product.price}</span>
+        <AffiliateLink href={product.affiliateUrl} />
+      </div>
+    </div>
+  </div>
+</article>

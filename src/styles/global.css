@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* GearedUp Brand Theme */
+@theme {
+  /* Primary brand colors - Fresh green for "gear up" energy */
+  --color-brand-50: oklch(0.98 0.02 145);
+  --color-brand-100: oklch(0.95 0.05 145);
+  --color-brand-200: oklch(0.90 0.10 145);
+  --color-brand-300: oklch(0.82 0.15 145);
+  --color-brand-400: oklch(0.72 0.18 145);
+  --color-brand-500: oklch(0.62 0.20 145);
+  --color-brand-600: oklch(0.52 0.18 145);
+  --color-brand-700: oklch(0.42 0.15 145);
+  --color-brand-800: oklch(0.32 0.12 145);
+  --color-brand-900: oklch(0.22 0.08 145);
+
+  /* Category accent colors */
+  --color-quilting: oklch(0.65 0.25 350);
+  --color-board-gaming: oklch(0.55 0.25 290);
+  --color-miniatures: oklch(0.70 0.20 85);
+  --color-knitting: oklch(0.60 0.20 25);
+  --color-mountaineering: oklch(0.60 0.18 230);
+
+  /* Neutral palette */
+  --color-surface: oklch(1 0 0);
+  --color-surface-dim: oklch(0.98 0 0);
+  --color-surface-bright: oklch(1 0 0);
+
+  /* Shadows */
+  --shadow-soft: 0 2px 15px -3px oklch(0 0 0 / 0.08), 0 4px 6px -4px oklch(0 0 0 / 0.05);
+  --shadow-elevated: 0 10px 40px -10px oklch(0 0 0 / 0.15), 0 4px 6px -4px oklch(0 0 0 / 0.05);
+
+  /* Border radius */
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-neutral-900 antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Typography utilities */
+@utility heading-xl {
+  @apply text-4xl font-bold tracking-tight text-neutral-900;
+  @apply md:text-5xl lg:text-6xl;
+}
+
+@utility heading-lg {
+  @apply text-3xl font-bold tracking-tight text-neutral-900;
+  @apply md:text-4xl;
+}
+
+@utility heading-md {
+  @apply text-2xl font-semibold text-neutral-900;
+  @apply md:text-3xl;
+}
+
+@utility heading-sm {
+  @apply text-xl font-semibold text-neutral-900;
+  @apply md:text-2xl;
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent;
+}
+
+/* Component classes */
+@utility product-card {
+  @apply relative bg-white rounded-2xl border border-neutral-200 p-6;
+  @apply transition-all duration-300;
+  @apply hover:shadow-elevated hover:-translate-y-1 hover:border-brand-300;
+}
+
+@utility affiliate-button {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3;
+  @apply bg-brand-600 text-white font-semibold rounded-xl;
+  @apply hover:bg-brand-700 active:bg-brand-800;
+  @apply transition-colors duration-200;
+  @apply shadow-lg shadow-brand-600/25;
+}
+
+@utility affiliate-button-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3;
+  @apply bg-white text-brand-600 font-semibold rounded-xl;
+  @apply border-2 border-brand-600;
+  @apply hover:bg-brand-50 active:bg-brand-100;
+  @apply transition-colors duration-200;
+}
+
+@utility quick-answer-box {
+  @apply bg-gradient-to-br from-brand-50 to-brand-100/50;
+  @apply border border-brand-200 rounded-2xl p-6;
+  @apply md:p-8;
+}
+
+@utility category-card {
+  @apply relative bg-white rounded-2xl border border-neutral-200;
+  @apply p-6 transition-all duration-300;
+  @apply hover:shadow-elevated hover:-translate-y-1;
+  @apply cursor-pointer;
+}
+
+@utility prose-gearedup {
+  @apply prose prose-lg prose-neutral max-w-none;
+  @apply prose-headings:font-bold prose-headings:text-neutral-900;
+  @apply prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline;
+  @apply prose-strong:text-neutral-900;
+  @apply prose-li:marker:text-brand-500;
+}
+
+/* Badge variants */
+@utility badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+@utility badge-best-overall {
+  @apply bg-brand-500 text-white;
+}
+
+@utility badge-best-budget {
+  @apply bg-amber-500 text-white;
+}
+
+@utility badge-best-premium {
+  @apply bg-violet-500 text-white;
+}
+
+@utility badge-runner-up {
+  @apply bg-neutral-500 text-white;
+}
+
+/* Pro/Con list styling */
+@utility pros-list {
+  @apply space-y-2;
+}
+
+@utility pros-item {
+  @apply flex items-start gap-2 text-neutral-700;
+}
+
+@utility pros-icon {
+  @apply w-5 h-5 text-brand-500 mt-0.5 shrink-0;
+}
+
+@utility cons-icon {
+  @apply w-5 h-5 text-red-500 mt-0.5 shrink-0;
+}
+
+/* FAQ accordion */
+@utility faq-item {
+  @apply bg-white border border-neutral-200 rounded-xl overflow-hidden;
+  @apply transition-shadow duration-200 hover:shadow-soft;
+}
+
+@utility faq-trigger {
+  @apply flex items-center justify-between w-full p-4 text-left;
+  @apply font-semibold text-neutral-900 cursor-pointer;
+  @apply hover:bg-neutral-50 transition-colors;
+}
+
+@utility faq-content {
+  @apply px-4 pb-4 text-neutral-600;
+}
+
+/* Navigation */
+@utility nav-link {
+  @apply text-neutral-600 hover:text-brand-600 font-medium transition-colors;
+}
+
+@utility nav-link-active {
+  @apply text-brand-600;
+}
+
+/* Container */
+@utility container-narrow {
+  @apply max-w-4xl mx-auto px-4;
+}
+
+@utility container-wide {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-brand-200 text-brand-900;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-brand-500;
+}
+
+/* Smooth image loading */
+img {
+  @apply transition-opacity duration-300;
+}
+
+img[loading="lazy"] {
+  opacity: 1;
+}
+
+/* Affiliate link disclosure marker */
+a[rel~="sponsored"]::after {
+  content: " *";
+  @apply text-xs align-super text-neutral-400;
+}

@@ -1,0 +1,181 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CategoryGrid from '@components/ui/CategoryGrid.astro';
+import { getCollection } from 'astro:content';
+
+// Get latest recommendations for featured section
+const allRecommendations = await getCollection('recommendations', ({ data }) => !data.draft);
+const latestRecommendations = allRecommendations
+  .sort((a, b) => new Date(b.data.lastUpdated).getTime() - new Date(a.data.lastUpdated).getTime())
+  .slice(0, 3);
+
+const title = "GearedUp - Gear Up for Your Hobby";
+const description = "Find the best gear for your hobby with curated, honest recommendations. From quilting to board gaming, we've got you covered.";
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
+    <div class="container-wide py-16 md:py-24">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="heading-xl mb-6">
+          Gear Up for Your
+          <span class="text-gradient"> Hobby</span>
+        </h1>
+        <p class="text-xl text-neutral-600 leading-relaxed mb-8">
+          Curated recommendations for hobbyists who demand quality.
+          We research, test, and pick the best gear so you can focus on what you love.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#categories" class="affiliate-button">
+            Browse Categories
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <a href="/about/" class="affiliate-button-secondary">
+            How We Choose
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative elements -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-brand-100 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl opacity-50"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-100 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl opacity-50"></div>
+  </section>
+
+  <!-- Categories Section -->
+  <section id="categories" class="py-16 md:py-24 bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <h2 class="heading-md mb-4">Explore by Hobby</h2>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+          Deep dives into the best gear for each passion. Click a category to see our top picks.
+        </p>
+      </div>
+
+      <CategoryGrid />
+    </div>
+  </section>
+
+  <!-- Latest Recommendations -->
+  {latestRecommendations.length > 0 && (
+    <section class="py-16 md:py-24 bg-neutral-50">
+      <div class="container-wide">
+        <div class="text-center mb-12">
+          <h2 class="heading-md mb-4">Latest Recommendations</h2>
+          <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+            Freshly researched guides to help you make confident purchases.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {latestRecommendations.map((rec) => (
+            <a
+              href={`/${rec.slug}/`}
+              class="block bg-white rounded-2xl border border-neutral-200 overflow-hidden hover:shadow-elevated hover:-translate-y-1 transition-all duration-300 group"
+            >
+              <div class="bg-neutral-100 p-6">
+                <img
+                  src={rec.data.quickAnswer.image}
+                  alt={rec.data.title}
+                  class="w-full h-40 object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-6">
+                <span class="text-xs font-medium text-brand-600 uppercase tracking-wider">
+                  {rec.data.category}
+                </span>
+                <h3 class="text-lg font-bold text-neutral-900 mt-1 mb-2 group-hover:text-brand-600 transition-colors line-clamp-2">
+                  {rec.data.title}
+                </h3>
+                <p class="text-sm text-neutral-600 line-clamp-2">
+                  {rec.data.metaDescription}
+                </p>
+                <div class="mt-4 flex items-center text-brand-600 font-medium text-sm">
+                  <span>Read guide</span>
+                  <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Value Proposition -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <h2 class="heading-md mb-4">Why Trust GearedUp?</h2>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+          We're hobbyists helping hobbyists. No fluff, no hype—just honest recommendations.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-neutral-900 mb-2">Honest Reviews</h3>
+          <p class="text-neutral-600">
+            We highlight both pros and cons. Our picks are based on quality, not just commission rates.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-neutral-900 mb-2">Quick Answers</h3>
+          <p class="text-neutral-600">
+            Get the best pick upfront. Dive deeper only if you want the details.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-neutral-900 mb-2">Always Current</h3>
+          <p class="text-neutral-600">
+            We update our guides regularly. Every page shows when it was last reviewed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-24 bg-gradient-to-br from-brand-600 to-brand-700">
+    <div class="container-narrow text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ready to Gear Up?
+      </h2>
+      <p class="text-lg text-brand-100 mb-8 max-w-xl mx-auto">
+        Browse our categories and find the perfect gear for your next project.
+      </p>
+      <a
+        href="#categories"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-600 font-semibold rounded-xl hover:bg-brand-50 transition-colors shadow-lg"
+      >
+        Start Browsing
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,132 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const title = "About GearedUp";
+const description = "Learn about our mission, methodology, and commitment to honest gear recommendations for hobbyists.";
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="container-narrow py-12 md:py-16">
+    <!-- Header -->
+    <header class="mb-12 text-center">
+      <h1 class="heading-lg mb-4">About GearedUp</h1>
+      <p class="text-xl text-neutral-600 max-w-2xl mx-auto">
+        We're hobbyists helping hobbyists find the right gear.
+      </p>
+    </header>
+
+    <!-- Mission -->
+    <section class="mb-16">
+      <h2 class="heading-sm mb-4">Our Mission</h2>
+      <div class="prose-gearedup">
+        <p>
+          GearedUp exists because we got tired of sifting through generic "best of" lists that
+          clearly hadn't been written by actual hobbyists. When you're looking for the best
+          rotary cutter for quilting or the perfect card sleeves for your MTG collection,
+          you deserve recommendations from people who actually use this stuff.
+        </p>
+        <p>
+          That's us. We're quilters, board gamers, miniature painters, and crafters. We've made
+          the mistakes so you don't have to. We've tested the cheap options and the premium ones.
+          And we're here to share what we've learned.
+        </p>
+      </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="mb-16" id="methodology">
+      <h2 class="heading-sm mb-4">Our Methodology</h2>
+      <div class="prose-gearedup mb-8">
+        <p>
+          Every recommendation on GearedUp follows a consistent research process:
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-neutral-50 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-brand-600 font-bold">1</span>
+          </div>
+          <h3 class="font-bold text-neutral-900 mb-2">Research</h3>
+          <p class="text-neutral-600 text-sm">
+            We scour forums, Reddit, Facebook groups, and review sites to understand what
+            real users love and hate about each product.
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-brand-600 font-bold">2</span>
+          </div>
+          <h3 class="font-bold text-neutral-900 mb-2">Compare</h3>
+          <p class="text-neutral-600 text-sm">
+            We create detailed comparison criteria specific to each product type.
+            What matters for a rotary cutter is different from what matters for dice.
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-brand-600 font-bold">3</span>
+          </div>
+          <h3 class="font-bold text-neutral-900 mb-2">Curate</h3>
+          <p class="text-neutral-600 text-sm">
+            We pick 3-5 products that cover different needs: best overall, best budget,
+            best premium, and notable alternatives.
+          </p>
+        </div>
+
+        <div class="bg-neutral-50 rounded-2xl p-6">
+          <div class="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
+            <span class="text-brand-600 font-bold">4</span>
+          </div>
+          <h3 class="font-bold text-neutral-900 mb-2">Update</h3>
+          <p class="text-neutral-600 text-sm">
+            Products change. Prices fluctuate. New options emerge. We revisit our guides
+            regularly to keep them accurate.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Affiliate Disclosure -->
+    <section class="mb-16">
+      <h2 class="heading-sm mb-4">How We Make Money</h2>
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+        <div class="prose-gearedup">
+          <p>
+            <strong>Full transparency:</strong> GearedUp earns money through affiliate links.
+            When you click a link to Amazon or another retailer and make a purchase, we may
+            earn a small commission at no extra cost to you.
+          </p>
+          <p>
+            This is how we keep the site running and fund our research. However, it never
+            influences our recommendations. We'd rather recommend a product with a lower
+            commission (or no commission at all) than steer you toward something subpar.
+          </p>
+          <p>
+            Every product we recommend is something we'd genuinely suggest to a friend.
+            That's the standard we hold ourselves to.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="heading-sm mb-4">Get in Touch</h2>
+      <div class="prose-gearedup">
+        <p>
+          Have a question about a recommendation? Spotted an error? Want to suggest a
+          product category we should cover?
+        </p>
+        <p>
+          We'd love to hear from you. Drop us a line at
+          <a href="mailto:hello@gearedup.example.com" class="text-brand-600 hover:underline">
+            hello@gearedup.example.com
+          </a>.
+        </p>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import type { FAQ } from '@content/config';
+
+interface Props {
+  faqs: FAQ[];
+}
+
+const { faqs } = Astro.props;
+---
+
+<div class="space-y-3">
+  {faqs.map((faq, index) => (
+    <details class="faq-item group" id={`faq-${index}`}>
+      <summary class="faq-trigger">
+        <span>{faq.question}</span>
+        <svg
+          class="w-5 h-5 text-neutral-400 transition-transform duration-200 group-open:rotate-180"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="faq-content">
+        <p>{faq.answer}</p>
+      </div>
+    </details>
+  ))}
+</div>

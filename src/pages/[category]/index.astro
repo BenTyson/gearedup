@@ -1,0 +1,14 @@
+---
+import CategoryHubLayout from '@layouts/CategoryHubLayout.astro';
+import { categories } from '@/data/categories';
+
+export function getStaticPaths() {
+  return categories.map((category) => ({
+    params: { category: category.slug },
+  }));
+}
+
+const { category } = Astro.params;
+---
+
+<CategoryHubLayout category={category} />
