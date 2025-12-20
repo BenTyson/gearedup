@@ -9,18 +9,43 @@
 | **Project** | GearedUp |
 | **What** | Affiliate site: "best X for Y" hobby gear recommendations |
 | **Stack** | Astro 5.x + Tailwind 4.x + TypeScript |
-| **Port** | 4488 |
-| **Hosting** | Railway (configured) |
-| **Database** | Supabase (future - not yet integrated) |
-| **Status** | MVP Complete - needs content |
+| **Port** | 4488 (local dev) |
+| **Live URL** | https://gearedup-production.up.railway.app |
+| **Hosting** | Railway (deployed) |
+| **Database** | Supabase (linked, not yet used) |
+| **Status** | **LIVE** - 10 recommendation pages published |
 
 ## Commands
 
 ```bash
 npm run dev      # http://localhost:4488
 npm run build    # Production build
-npm run preview  # Preview build on port 4488
+npm run start    # Serve production build locally
+railway up       # Deploy to Railway
 ```
+
+## Live Pages
+
+| URL | Category |
+|-----|----------|
+| `/` | Homepage |
+| `/about/` | About page |
+| `/quilting/` | Quilting hub (5 pages) |
+| `/board-gaming/` | Board Gaming hub (5 pages) |
+
+### Quilting Pages
+- `/quilting/best-rotary-cutter-for-beginners/`
+- `/quilting/best-cutting-mat-for-quilting/`
+- `/quilting/best-sewing-machine-for-quilting-under-500/`
+- `/quilting/best-fabric-scissors-for-quilting/`
+- `/quilting/best-quilting-ruler-set/`
+
+### Board Gaming Pages
+- `/board-gaming/best-card-sleeves-for-mtg/`
+- `/board-gaming/best-board-game-storage/`
+- `/board-gaming/best-playmat-for-card-games/`
+- `/board-gaming/best-dice-set-for-dnd/`
+- `/board-gaming/best-board-game-table-topper/`
 
 ## Project Structure
 
@@ -29,10 +54,10 @@ src/
 ├── content/
 │   ├── config.ts                    # Content collection schema
 │   └── recommendations/
-│       ├── quilting/                # Quilting gear pages
-│       └── board-gaming/            # Board gaming gear pages
+│       ├── quilting/                # 5 quilting gear pages
+│       └── board-gaming/            # 5 board gaming gear pages
 ├── components/
-│   ├── products/                    # ProductCard, QuickAnswer, ComparisonTable, AffiliateLink
+│   ├── products/                    # ProductCard, QuickAnswer, ComparisonTable
 │   ├── layout/                      # Header, Footer
 │   ├── seo/                         # FAQSchema
 │   └── ui/                          # CategoryGrid, FAQAccordion
@@ -45,95 +70,41 @@ src/
 │   ├── about.astro                  # About page
 │   ├── [category]/index.astro       # Category hub routing
 │   └── [...slug].astro              # Recommendation page routing
-├── data/
-│   └── categories.ts                # Category definitions
 └── styles/
     └── global.css                   # Tailwind + custom theme
 ```
 
-## Content Model
+## Adding Content
 
-Recommendation pages are Markdown with typed frontmatter:
-
-```yaml
----
-title: "Best Rotary Cutter for Beginners (2025)"
-metaDescription: "..."
-category: "quilting"
-publishedDate: 2025-01-15
-lastUpdated: 2025-01-15
-quickAnswer:
-  name: "45mm Comfort Loop"
-  brand: "Fiskars"
-  price: 15
-  affiliateUrl: "https://amazon.com/dp/..."
-  image: "/images/products/fiskars.jpg"
-  pros: ["Comfortable grip", "Easy blade changes"]
-  cons: ["Not sharpest initially"]
-  bestFor: "Most beginners"
-  verdict: "The reliable choice..."
-  rank: "best-overall"
-products: [...]  # Array of products
-methodology: "<p>HTML string...</p>"
-faqs: [{ question: "...", answer: "..." }]
----
-
-Markdown body content here...
-```
-
-## Current Pages
-
-| URL | Status |
-|-----|--------|
-| `/` | Complete |
-| `/about/` | Complete |
-| `/quilting/` | Hub ready, 1 page |
-| `/board-gaming/` | Hub ready, 1 page |
-| `/quilting/best-rotary-cutter-for-beginners/` | Sample content |
-| `/board-gaming/best-card-sleeves-for-mtg/` | Sample content |
-
-## What's Needed Next
-
-1. **Real product images** - Replace placeholders in `/public/images/products/`
-2. **Research real products** - 8 more pilot pages with actual product data
-3. **Deploy to Railway** - `railway login && railway up`
-4. **Set up Supabase** - `supabase login && supabase init` (for future price tracking)
-
-## Pilot Pages to Create
-
-**Quilting (4 remaining):**
-- best-cutting-mat-for-quilting
-- best-sewing-machine-for-quilting-under-500
-- best-fabric-scissors-for-quilting
-- best-quilting-ruler-set
-
-**Board Gaming (4 remaining):**
-- best-board-game-storage
-- best-playmat-for-card-games
-- best-dice-set-for-dnd
-- best-board-game-table-topper
-
-## Key Patterns
-
-**Adding a new recommendation page:**
+**New recommendation page:**
 1. Create `src/content/recommendations/[category]/[slug].md`
-2. Follow the frontmatter schema in `src/content/config.ts`
+2. Follow frontmatter schema in `src/content/config.ts`
 3. Add product images to `public/images/products/`
-4. Page auto-routes to `/[category]/[slug]/`
+4. Run `npm run build && railway up` to deploy
 
-**Adding a new category:**
+**New category:**
 1. Add to `src/data/categories.ts`
 2. Create `src/content/recommendations/[category]/` directory
 3. Hub page auto-generates at `/[category]/`
 
-## Design Tokens
+## What's Needed Next
 
-- **Primary color:** `brand-500` to `brand-700` (green)
-- **Category colors:** `quilting` (pink), `board-gaming` (violet), `miniatures` (amber), `knitting` (rose)
-- **Key utilities:** `product-card`, `affiliate-button`, `quick-answer-box`, `heading-lg/md/sm`
+1. **Real product images** - Replace placeholders in `/public/images/products/`
+2. **Amazon Associates** - Apply and get affiliate tag
+3. **Analytics** - Set up Plausible or similar
+4. **More content** - Expand to 30+ pages for SEO traction
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `src/content/config.ts` | Content collection types |
+| `src/layouts/BestXForYLayout.astro` | Main page template |
+| `nixpacks.toml` | Railway build configuration |
+| `railway.json` | Railway deployment config |
 
 ## Links
 
+- [Live Site](https://gearedup-production.up.railway.app)
+- [Railway Dashboard](https://railway.com/project/318fb22c-ac73-40bd-942c-105187b3d098)
 - [Full planning doc](./GEAREDUP.md)
-- [Astro Docs](https://docs.astro.build)
-- [Tailwind 4 Docs](https://tailwindcss.com/docs)
