@@ -6,6 +6,7 @@
     "dev": "astro dev --port 4488",
     "build": "astro build",
     "preview": "astro preview --port ${PORT:-4488} --host 0.0.0.0",
+    "start": "npx serve dist -l ${PORT:-4488}",
     "astro": "astro"
   },
   "dependencies": {
@@ -13,6 +14,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.6",
+    "serve": "^14.2.5",
     "tailwindcss": "^4.1.18"
   }
 }
