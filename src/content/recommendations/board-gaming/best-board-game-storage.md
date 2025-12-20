@@ -16,7 +16,7 @@ quickAnswer:
   brand: "IKEA"
   price: 130
   affiliateUrl: "https://www.ikea.com/us/en/p/kallax-shelf-unit-white-10360139/?tag=gearedup-20"
-  image: "/images/products/kallax-shelf.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Perfect cube size for most board games"
     - "Endlessly expandable"
@@ -35,7 +35,7 @@ products:
     brand: "IKEA"
     price: 130
     affiliateUrl: "https://www.ikea.com/us/en/p/kallax-shelf-unit-white-10360139/?tag=gearedup-20"
-    image: "/images/products/kallax-shelf.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Perfect cube size for most board games"
       - "Endlessly expandable"
@@ -53,7 +53,7 @@ products:
     brand: "BoxThrone"
     price: 280
     affiliateUrl: "https://www.amazon.com/dp/B0B1DXHZ8C?tag=gearedup-20"
-    image: "/images/products/boxthrone-tower.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Designed specifically for board games"
       - "Adjustable shelf heights"
@@ -71,7 +71,7 @@ products:
     brand: "Closetmaid"
     price: 75
     affiliateUrl: "https://www.amazon.com/dp/B00KHRSR6E?tag=gearedup-20"
-    image: "/images/products/closetmaid-cubes.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Affordable alternative to KALLAX"
       - "No IKEA trip required"
@@ -89,7 +89,7 @@ products:
     brand: "Folded Space"
     price: 20
     affiliateUrl: "https://www.amazon.com/dp/B07ZC9TLXM?tag=gearedup-20"
-    image: "/images/products/folded-space-insert.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Dramatically improves setup time"
       - "Available for hundreds of games"

@@ -16,7 +16,7 @@ quickAnswer:
   brand: "Chessex"
   price: 10
   affiliateUrl: "https://www.amazon.com/dp/B0011WJVR0?tag=gearedup-20"
-  image: "/images/products/chessex-gemini.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Industry standard quality"
     - "Fair and balanced rolls"
@@ -34,7 +34,7 @@ products:
     brand: "Chessex"
     price: 10
     affiliateUrl: "https://www.amazon.com/dp/B0011WJVR0?tag=gearedup-20"
-    image: "/images/products/chessex-gemini.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Industry standard quality"
       - "Fair and balanced rolls"
@@ -51,7 +51,7 @@ products:
     brand: "Norse Foundry"
     price: 45
     affiliateUrl: "https://www.amazon.com/dp/B07ZTJJQW8?tag=gearedup-20"
-    image: "/images/products/norse-foundry-metal.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Satisfying heft and sound"
       - "Beautiful craftsmanship"
@@ -69,7 +69,7 @@ products:
     brand: "Wiz Dice"
     price: 22
     affiliateUrl: "https://www.amazon.com/dp/B00IF51ZRE?tag=gearedup-20"
-    image: "/images/products/wiz-dice-pound.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Incredible value (15+ sets)"
       - "Random assortment is fun"
@@ -87,7 +87,7 @@ products:
     brand: "Level Up Dice"
     price: 90
     affiliateUrl: "https://www.amazon.com/dp/B07QZK6R4V?tag=gearedup-20"
-    image: "/images/products/level-up-gemstone.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Real stone (amethyst, obsidian, etc.)"
       - "Each set is unique"

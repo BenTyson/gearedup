@@ -16,7 +16,7 @@ quickAnswer:
   brand: "OLFA"
   price: 65
   affiliateUrl: "https://www.amazon.com/dp/B0006HU2VY?tag=gearedup-20"
-  image: "/images/products/olfa-cutting-mat.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "True self-healing that lasts for years"
     - "Clear, accurate grid markings"
@@ -34,7 +34,7 @@ products:
     brand: "OLFA"
     price: 65
     affiliateUrl: "https://www.amazon.com/dp/B0006HU2VY?tag=gearedup-20"
-    image: "/images/products/olfa-cutting-mat.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "True self-healing that lasts for years"
       - "Clear, accurate grid markings"
@@ -51,7 +51,7 @@ products:
     brand: "Fiskars"
     price: 45
     affiliateUrl: "https://www.amazon.com/dp/B07ZQSSXMY?tag=gearedup-20"
-    image: "/images/products/fiskars-cutting-mat.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent value for the size"
       - "Good self-healing properties"
@@ -68,7 +68,7 @@ products:
     brand: "ARTEZA"
     price: 15
     affiliateUrl: "https://www.amazon.com/dp/B08D9B8GMD?tag=gearedup-20"
-    image: "/images/products/arteza-cutting-mat.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Incredible price for beginners"
       - "Good enough for learning"
@@ -86,7 +86,7 @@ products:
     brand: "Alvin"
     price: 110
     affiliateUrl: "https://www.amazon.com/dp/B0027A9N4W?tag=gearedup-20"
-    image: "/images/products/alvin-cutting-mat.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Massive cutting surface"
       - "Professional-grade durability"

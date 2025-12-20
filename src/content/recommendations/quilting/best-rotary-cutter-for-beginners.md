@@ -16,7 +16,7 @@ quickAnswer:
   brand: "Fiskars"
   price: 15
   affiliateUrl: "https://www.amazon.com/dp/B0001DSIVY?tag=gearedup-20"
-  image: "/images/products/fiskars-rotary-cutter.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Comfortable ergonomic handle"
     - "Reliable blade guard"
@@ -34,7 +34,7 @@ products:
     brand: "Fiskars"
     price: 15
     affiliateUrl: "https://www.amazon.com/dp/B0001DSIVY?tag=gearedup-20"
-    image: "/images/products/fiskars-rotary-cutter.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Comfortable ergonomic handle"
       - "Reliable blade guard"
@@ -51,7 +51,7 @@ products:
     brand: "OLFA"
     price: 24
     affiliateUrl: "https://www.amazon.com/dp/B000YZ7M9W?tag=gearedup-20"
-    image: "/images/products/olfa-ergonomic-cutter.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Exceptional blade sharpness"
       - "Curved handle reduces wrist strain"
@@ -68,7 +68,7 @@ products:
     brand: "DAFA"
     price: 8
     affiliateUrl: "https://www.amazon.com/dp/B07JH7TDYN?tag=gearedup-20"
-    image: "/images/products/dafa-rotary-cutter.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Incredible value"
       - "Surprisingly sharp blade"

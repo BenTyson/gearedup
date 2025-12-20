@@ -16,7 +16,7 @@ quickAnswer:
   brand: "Kai"
   price: 55
   affiliateUrl: "https://www.amazon.com/dp/B002XKQAWA?tag=gearedup-20"
-  image: "/images/products/kai-7250-scissors.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Exceptionally sharp Japanese steel"
     - "Lightweight despite size"
@@ -34,7 +34,7 @@ products:
     brand: "Kai"
     price: 55
     affiliateUrl: "https://www.amazon.com/dp/B002XKQAWA?tag=gearedup-20"
-    image: "/images/products/kai-7250-scissors.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Exceptionally sharp Japanese steel"
       - "Lightweight despite size"
@@ -51,7 +51,7 @@ products:
     brand: "Gingher"
     price: 35
     affiliateUrl: "https://www.amazon.com/dp/B000UU6SR4?tag=gearedup-20"
-    image: "/images/products/gingher-shears.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Classic American-made quality"
       - "Lifetime warranty"
@@ -69,7 +69,7 @@ products:
     brand: "Fiskars"
     price: 18
     affiliateUrl: "https://www.amazon.com/dp/B00006IFNG?tag=gearedup-20"
-    image: "/images/products/fiskars-fabric-scissors.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent value"
       - "Sharp out of the box"
@@ -87,7 +87,7 @@ products:
     brand: "Kai"
     price: 75
     affiliateUrl: "https://www.amazon.com/dp/B003JN4R2W?tag=gearedup-20"
-    image: "/images/products/kai-n5275-scissors.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Larger size for yardage cutting"
       - "Same legendary Kai quality"

@@ -16,7 +16,7 @@ quickAnswer:
   brand: "Brother"
   price: 250
   affiliateUrl: "https://www.amazon.com/dp/B09X7GT1LP?tag=gearedup-20"
-  image: "/images/products/brother-cs7000x.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "70 built-in stitches including quilting stitches"
     - "Wide table extension for quilts"
@@ -34,7 +34,7 @@ products:
     brand: "Brother"
     price: 250
     affiliateUrl: "https://www.amazon.com/dp/B09X7GT1LP?tag=gearedup-20"
-    image: "/images/products/brother-cs7000x.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "70 built-in stitches including quilting stitches"
       - "Wide table extension for quilts"
@@ -51,7 +51,7 @@ products:
     brand: "Janome"
     price: 450
     affiliateUrl: "https://www.amazon.com/dp/B00916Y4YM?tag=gearedup-20"
-    image: "/images/products/janome-hd3000.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "All-metal construction for durability"
       - "Handles thick quilts with ease"
@@ -69,7 +69,7 @@ products:
     brand: "Singer"
     price: 180
     affiliateUrl: "https://www.amazon.com/dp/B07GCWQFKF?tag=gearedup-20"
-    image: "/images/products/singer-m3220.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Affordable entry point"
       - "Simple mechanical operation"
@@ -87,7 +87,7 @@ products:
     brand: "Brother"
     price: 480
     affiliateUrl: "https://www.amazon.com/dp/B0734NYS9S?tag=gearedup-20"
-    image: "/images/products/brother-se630.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Adds embroidery capability"
       - "103 built-in stitches"

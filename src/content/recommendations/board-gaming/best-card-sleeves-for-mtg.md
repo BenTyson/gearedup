@@ -16,7 +16,7 @@ quickAnswer:
   brand: "Ultra Pro"
   price: 10
   affiliateUrl: "https://www.amazon.com/dp/B07C6XMKKZ?tag=gearedup-20"
-  image: "/images/products/ultra-pro-eclipse.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Excellent shuffle feel"
     - "Fully opaque back"
@@ -34,7 +34,7 @@ products:
     brand: "Ultra Pro"
     price: 10
     affiliateUrl: "https://www.amazon.com/dp/B07C6XMKKZ?tag=gearedup-20"
-    image: "/images/products/ultra-pro-eclipse.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent shuffle feel"
       - "Fully opaque back"
@@ -51,7 +51,7 @@ products:
     brand: "Ultimate Guard"
     price: 13
     affiliateUrl: "https://www.amazon.com/dp/B06Y641JMK?tag=gearedup-20"
-    image: "/images/products/ultimate-guard-katana.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Premium shuffle feel"
       - "Extremely durable"
@@ -68,7 +68,7 @@ products:
     brand: "Dragon Shield"
     price: 12
     affiliateUrl: "https://www.amazon.com/dp/B00XLI4VKE?tag=gearedup-20"
-    image: "/images/products/dragon-shield-matte.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Legendary durability"
       - "100 sleeves per pack"
@@ -85,7 +85,7 @@ products:
     brand: "Ultra Pro"
     price: 5
     affiliateUrl: "https://www.amazon.com/dp/B00IZKMKN4?tag=gearedup-20"
-    image: "/images/products/ultra-pro-matte.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Very affordable"
       - "Easy to find everywhere"

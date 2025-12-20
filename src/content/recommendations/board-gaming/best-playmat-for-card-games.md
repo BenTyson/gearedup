@@ -16,7 +16,7 @@ quickAnswer:
   brand: "Ultimate Guard"
   price: 28
   affiliateUrl: "https://www.amazon.com/dp/B01KSNS6PS?tag=gearedup-20"
-  image: "/images/products/ultimate-guard-playmat.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Premium textured surface for card sliding"
     - "Anti-slip rubber backing"
@@ -34,7 +34,7 @@ products:
     brand: "Ultimate Guard"
     price: 28
     affiliateUrl: "https://www.amazon.com/dp/B01KSNS6PS?tag=gearedup-20"
-    image: "/images/products/ultimate-guard-playmat.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Premium textured surface for card sliding"
       - "Anti-slip rubber backing"
@@ -51,7 +51,7 @@ products:
     brand: "Inked Gaming"
     price: 30
     affiliateUrl: "https://www.inkedgaming.com/products/custom-playmat?tag=gearedup-20"
-    image: "/images/products/inked-gaming-custom.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Fully customizable artwork"
       - "High-quality printing"
@@ -69,7 +69,7 @@ products:
     brand: "Ultra Pro"
     price: 18
     affiliateUrl: "https://www.amazon.com/dp/B07D7Y8TFK?tag=gearedup-20"
-    image: "/images/products/ultra-pro-playmat.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Official licensed artwork"
       - "Wide variety of designs"
@@ -87,7 +87,7 @@ products:
     brand: "Gamegenic"
     price: 35
     affiliateUrl: "https://www.amazon.com/dp/B08YJSLQ4G?tag=gearedup-20"
-    image: "/images/products/gamegenic-playmat.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Thick 2mm neoprene"
       - "Excellent card pickup"

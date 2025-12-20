@@ -16,7 +16,7 @@ quickAnswer:
   brand: "Gamermats"
   price: 75
   affiliateUrl: "https://www.amazon.com/dp/B07Q5Z8SJL?tag=gearedup-20"
-  image: "/images/products/gamermats-neoprene.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Perfect grip for cards and components"
     - "Rolls up for easy storage"
@@ -34,7 +34,7 @@ products:
     brand: "Gamermats"
     price: 75
     affiliateUrl: "https://www.amazon.com/dp/B07Q5Z8SJL?tag=gearedup-20"
-    image: "/images/products/gamermats-neoprene.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Perfect grip for cards and components"
       - "Rolls up for easy storage"
@@ -51,7 +51,7 @@ products:
     brand: "Inked Gaming"
     price: 95
     affiliateUrl: "https://www.inkedgaming.com/products/neoprene-gaming-mat?tag=gearedup-20"
-    image: "/images/products/inked-gaming-topper.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Large size for big games"
       - "Custom printing available"
@@ -69,7 +69,7 @@ products:
     brand: "Phelps Game Tables"
     price: 45
     affiliateUrl: "https://www.amazon.com/dp/B08XWLM6HN?tag=gearedup-20"
-    image: "/images/products/phelps-felt-mat.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Classic casino feel"
       - "Cards slide smoothly"
@@ -87,7 +87,7 @@ products:
     brand: "Mats by Mars"
     price: 110
     affiliateUrl: "https://www.amazon.com/dp/B0787LGJX3?tag=gearedup-20"
-    image: "/images/products/mats-by-mars.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Two surfaces (different colors/textures)"
       - "Exceptional build quality"

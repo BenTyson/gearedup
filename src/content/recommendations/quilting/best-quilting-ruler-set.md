@@ -16,7 +16,7 @@ quickAnswer:
   brand: "Creative Grids"
   price: 85
   affiliateUrl: "https://www.amazon.com/dp/B008NWPXAE?tag=gearedup-20"
-  image: "/images/products/creative-grids-set.jpg"
+  image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Non-slip grip built into ruler"
     - "Turn-a-Round feature for easy alignment"
@@ -34,7 +34,7 @@ products:
     brand: "Creative Grids"
     price: 85
     affiliateUrl: "https://www.amazon.com/dp/B008NWPXAE?tag=gearedup-20"
-    image: "/images/products/creative-grids-set.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Non-slip grip built into ruler"
       - "Turn-a-Round feature for easy alignment"
@@ -51,7 +51,7 @@ products:
     brand: "Omnigrid"
     price: 40
     affiliateUrl: "https://www.amazon.com/dp/B000YZ4FCY?tag=gearedup-20"
-    image: "/images/products/omnigrid-rulers.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Industry standard markings"
       - "Good balance of price and quality"
@@ -69,7 +69,7 @@ products:
     brand: "ARTEZA"
     price: 22
     affiliateUrl: "https://www.amazon.com/dp/B07ZP1JPTD?tag=gearedup-20"
-    image: "/images/products/arteza-ruler-set.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent value for beginners"
       - "Includes 4 useful sizes"
@@ -87,7 +87,7 @@ products:
     brand: "Quilters Select"
     price: 130
     affiliateUrl: "https://www.amazon.com/dp/B07TCQJZZ5?tag=gearedup-20"
-    image: "/images/products/quilters-select-set.jpg"
+    image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Comprehensive 7-piece set"
       - "Superior non-slip feature"
