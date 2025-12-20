@@ -6,7 +6,7 @@
     "dev": "astro dev --port 4488",
     "build": "astro build",
     "preview": "astro preview --port ${PORT:-4488} --host 0.0.0.0",
-    "start": "npx serve dist -l ${PORT:-4488}",
+    "start": "serve dist",
     "astro": "astro"
   },
   "dependencies": {
