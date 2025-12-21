@@ -15,7 +15,7 @@ quickAnswer:
   name: "Basic Range Quilting Ruler Set (4 Piece)"
   brand: "Creative Grids"
   price: 85
-  affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=gearedup-20"
+  affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Non-slip grip built into ruler"
@@ -33,7 +33,7 @@ products:
   - name: "Basic Range Quilting Ruler Set (4 Piece)"
     brand: "Creative Grids"
     price: 85
-    affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Non-slip grip built into ruler"
@@ -50,7 +50,7 @@ products:
   - name: "6x24 and 6x12 Ruler Combo"
     brand: "Omnigrid"
     price: 40
-    affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Industry standard markings"
@@ -68,7 +68,7 @@ products:
   - name: "Acrylic Quilting Ruler Set (4 Piece)"
     brand: "ARTEZA"
     price: 22
-    affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent value for beginners"
@@ -86,7 +86,7 @@ products:
   - name: "Quilting Ruler Starter Set (7 Piece)"
     brand: "Quilters Select"
     price: 130
-    affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Creative+Grids+quilting+ruler+set&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Comprehensive 7-piece set"

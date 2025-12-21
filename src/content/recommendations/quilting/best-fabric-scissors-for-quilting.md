@@ -15,7 +15,7 @@ quickAnswer:
   name: "7250 8-Inch Professional Shears"
   brand: "Kai"
   price: 55
-  affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=gearedup-20"
+  affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Exceptionally sharp Japanese steel"
@@ -33,7 +33,7 @@ products:
   - name: "7250 8-Inch Professional Shears"
     brand: "Kai"
     price: 55
-    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Exceptionally sharp Japanese steel"
@@ -50,7 +50,7 @@ products:
   - name: "8-Inch Knife Edge Dressmaker Shears"
     brand: "Gingher"
     price: 35
-    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Classic American-made quality"
@@ -68,7 +68,7 @@ products:
   - name: "8-Inch RazorEdge Fabric Shears"
     brand: "Fiskars"
     price: 18
-    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent value"
@@ -86,7 +86,7 @@ products:
   - name: "N5275 10-Inch Shears"
     brand: "Kai"
     price: 75
-    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Larger size for yardage cutting"

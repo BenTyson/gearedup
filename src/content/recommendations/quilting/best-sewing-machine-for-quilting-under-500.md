@@ -15,7 +15,7 @@ quickAnswer:
   name: "CS7000X Computerized Sewing Machine"
   brand: "Brother"
   price: 250
-  affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=gearedup-20"
+  affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "70 built-in stitches including quilting stitches"
@@ -33,7 +33,7 @@ products:
   - name: "CS7000X Computerized Sewing Machine"
     brand: "Brother"
     price: 250
-    affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "70 built-in stitches including quilting stitches"
@@ -50,7 +50,7 @@ products:
   - name: "HD3000 Heavy Duty Mechanical Sewing Machine"
     brand: "Janome"
     price: 450
-    affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "All-metal construction for durability"
@@ -68,7 +68,7 @@ products:
   - name: "M3220 Mechanical Sewing Machine"
     brand: "Singer"
     price: 180
-    affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Affordable entry point"
@@ -86,7 +86,7 @@ products:
   - name: "SE630 Computerized Sewing and Embroidery Machine"
     brand: "Brother"
     price: 480
-    affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Brother+CS7000X+sewing+machine&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Adds embroidery capability"
