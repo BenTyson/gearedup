@@ -15,7 +15,7 @@ quickAnswer:
   name: "KALLAX Shelf Unit (4x4)"
   brand: "IKEA"
   price: 130
-  affiliateUrl: "https://www.ikea.com/us/en/p/kallax-shelf-unit-white-10360139/?tag=gearedup-20"
+  affiliateUrl: "https://www.amazon.com/s?k=IKEA+KALLAX+4x4+shelf&tag=gearedup-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Perfect cube size for most board games"
@@ -34,7 +34,7 @@ products:
   - name: "KALLAX Shelf Unit (4x4)"
     brand: "IKEA"
     price: 130
-    affiliateUrl: "https://www.ikea.com/us/en/p/kallax-shelf-unit-white-10360139/?tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=IKEA+KALLAX+4x4+shelf&tag=gearedup-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Perfect cube size for most board games"
@@ -52,7 +52,7 @@ products:
   - name: "Board Game Tower (Holds 12 Games)"
     brand: "BoxThrone"
     price: 280
-    affiliateUrl: "https://www.amazon.com/dp/B0B1DXHZ8C?tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=KALLAX+shelf+unit+4x4&tag=gearedup-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Designed specifically for board games"
@@ -70,7 +70,7 @@ products:
   - name: "Cube Storage Organizer (9-Cube)"
     brand: "Closetmaid"
     price: 75
-    affiliateUrl: "https://www.amazon.com/dp/B00KHRSR6E?tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=KALLAX+shelf+unit+4x4&tag=gearedup-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Affordable alternative to KALLAX"
@@ -88,7 +88,7 @@ products:
   - name: "Folded Space Game Inserts"
     brand: "Folded Space"
     price: 20
-    affiliateUrl: "https://www.amazon.com/dp/B07ZC9TLXM?tag=gearedup-20"
+    affiliateUrl: "https://www.amazon.com/s?k=KALLAX+shelf+unit+4x4&tag=gearedup-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Dramatically improves setup time"
