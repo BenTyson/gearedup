@@ -39,9 +39,9 @@ const recommendations = defineCollection({
     publishedDate: z.date(),
     lastUpdated: z.date(),
 
-    // Products
-    quickAnswer: productSchema,
-    products: z.array(productSchema),
+    // Products (optional - DB is source of truth, markdown is legacy/backup)
+    quickAnswer: productSchema.optional(),
+    products: z.array(productSchema).optional(),
 
     // Additional content
     methodology: z.string(),

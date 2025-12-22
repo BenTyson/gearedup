@@ -7,13 +7,14 @@ import FAQAccordion from '@components/ui/FAQAccordion.astro';
 import FAQSchema from '@components/seo/FAQSchema.astro';
 import type { CollectionEntry } from 'astro:content';
 import { getCategoryBySlug } from '@/data/categories';
+import { getProductsForPage, toComponentProduct } from '@lib/products';
 
 interface Props {
   entry: CollectionEntry<'recommendations'>;
 }
 
 const { entry } = Astro.props;
-const { data, render } = entry;
+const { data, render, slug } = entry;
 const { Content } = await render();
 
 const {
@@ -21,11 +22,14 @@ const {
   metaDescription,
   category,
   lastUpdated,
-  quickAnswer,
-  products,
   methodology,
   faqs,
 } = data;
+
+// Fetch products from database (single source of truth)
+const pageProducts = await getProductsForPage(slug);
+const products = pageProducts.map(pp => toComponentProduct(pp.product));
+const quickAnswer = products[0]; // First product is the quick answer
 
 const categoryInfo = getCategoryBySlug(category);
 const formattedDate = new Date(lastUpdated).toLocaleDateString('en-US', {
