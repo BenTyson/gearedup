@@ -14,7 +14,7 @@
 | **Hosting** | Railway (deployed) |
 | **Database** | Supabase (active - products table populated) |
 | **Affiliate Tag** | `bentropy-20` |
-| **Status** | **LIVE** - 10 recommendation pages, 39 products in DB |
+| **Status** | **LIVE** - 20 recommendation pages, 79 products in DB |
 
 ## Current Work: Database-First Architecture
 
@@ -22,9 +22,10 @@
 - **Database-first architecture implemented** - Products sourced from Supabase at build time
 - Supabase schema: `products`, `product_asins`, `recommendation_pages`, `page_products`, views
 - CLI tools: `scripts/products.ts`, `scripts/sync-pages.ts`, `scripts/extract-products.ts`
-- 39 products in database, 26 with ASINs
-- 10 recommendation pages linked to products via `page_products` junction table
+- 79 products in database with ASINs where available
+- 20 recommendation pages across 4 categories linked via `page_products` junction table
 - Astro fetches products from Supabase at build time (not from markdown)
+- **4 categories live**: Quilting, Board Gaming, Miniature Painting, Home Coffee
 
 ### ASINs Added (23 products)
 | Category | Products with Direct ASINs |
@@ -107,6 +108,8 @@ products_with_prices (view)
 | `/about/` | About page |
 | `/quilting/` | Quilting hub (5 pages) |
 | `/board-gaming/` | Board Gaming hub (5 pages) |
+| `/miniature-painting/` | Miniature Painting hub (5 pages) |
+| `/home-coffee/` | Home Coffee hub (5 pages) |
 
 ### Quilting Pages
 - `/quilting/best-rotary-cutter-for-beginners/`
@@ -121,6 +124,20 @@ products_with_prices (view)
 - `/board-gaming/best-playmat-for-card-games/`
 - `/board-gaming/best-dice-set-for-dnd/`
 - `/board-gaming/best-board-game-table-topper/`
+
+### Miniature Painting Pages
+- `/miniature-painting/best-brushes-for-miniature-painting/`
+- `/miniature-painting/best-miniature-primer/`
+- `/miniature-painting/best-wet-palette-for-miniatures/`
+- `/miniature-painting/best-magnifying-lamp-for-miniatures/`
+- `/miniature-painting/best-miniature-paint-set/`
+
+### Home Coffee Pages
+- `/home-coffee/best-burr-grinder-under-100/`
+- `/home-coffee/best-pour-over-coffee-maker/`
+- `/home-coffee/best-electric-kettle-for-pour-over/`
+- `/home-coffee/best-espresso-machine-under-500/`
+- `/home-coffee/best-french-press/`
 
 ## Project Structure
 
