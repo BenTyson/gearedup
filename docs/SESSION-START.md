@@ -16,14 +16,15 @@
 | **Affiliate Tag** | `bentropy-20` |
 | **Status** | **LIVE** - 10 recommendation pages, 39 products in DB |
 
-## Current Work: Product Infrastructure
+## Current Work: Database-First Architecture
 
 ### What's Done
-- Supabase schema created: `products`, `product_asins`, `price_history`, `product_images`, views
-- CLI tool built: `scripts/products.ts` (add, list, verify, import, export, generate-urls)
-- 39 products imported into Supabase from markdown files
-- **ASIN research completed** - 23 products now have direct `/dp/ASIN` links in markdown files
-- Remaining 16 products use search URLs (not on Amazon or problematic listings)
+- **Database-first architecture implemented** - Products sourced from Supabase at build time
+- Supabase schema: `products`, `product_asins`, `recommendation_pages`, `page_products`, views
+- CLI tools: `scripts/products.ts`, `scripts/sync-pages.ts`, `scripts/extract-products.ts`
+- 39 products in database, 26 with ASINs
+- 10 recommendation pages linked to products via `page_products` junction table
+- Astro fetches products from Supabase at build time (not from markdown)
 
 ### ASINs Added (23 products)
 | Category | Products with Direct ASINs |
@@ -47,8 +48,8 @@
 - Boutique makers: Gamermats, Mats by Mars, BoxThrone, etc.
 
 ### What's Next
-1. **Add build-time Supabase integration** - Pull prices at build time
-2. **Sync ASINs to Supabase** - Import the new ASINs into `product_asins` table
+1. **Add more categories** - Photography, woodworking, etc. (infrastructure ready)
+2. **PA-API integration** - Real-time prices when qualifying sales achieved
 3. **Add real product images** - Replace placeholder images
 
 ## CLI Commands
@@ -125,13 +126,17 @@ products_with_prices (view)
 
 ```
 src/
-├── content/recommendations/     # Markdown files with frontmatter
+├── content/recommendations/     # Markdown files (prose, FAQs, metadata)
 ├── components/products/         # ProductCard, QuickAnswer, ComparisonTable
 ├── layouts/BestXForYLayout.astro
+├── lib/
+│   ├── supabase.ts              # Supabase client + types
+│   └── products.ts              # Product fetching + transformation
 └── pages/[...slug].astro
 
 scripts/
 ├── products.ts                  # CLI for product management
+├── sync-pages.ts                # Sync pages + page-product links to DB
 └── extract-products.ts          # Extract products from markdown
 
 supabase/migrations/
@@ -142,7 +147,10 @@ supabase/migrations/
 
 | File | Purpose |
 |------|---------|
+| `src/lib/supabase.ts` | Supabase client + DB types |
+| `src/lib/products.ts` | Product fetching + transformation |
 | `scripts/products.ts` | Product management CLI |
+| `scripts/sync-pages.ts` | Sync pages + products to DB |
 | `scripts/extract-products.ts` | Extract products from markdown |
 | `supabase/migrations/20251221000000_products.sql` | DB schema |
 | `src/content/config.ts` | Content collection types |
