@@ -54,6 +54,15 @@ function extractProducts(): Product[] {
             if (seen.has(slug)) continue;
             seen.add(slug);
 
+            // Extract ASIN from affiliate URL if it's a direct /dp/ link
+            let asin: string | undefined;
+            if (p.affiliateUrl) {
+              const asinMatch = p.affiliateUrl.match(/\/dp\/([A-Z0-9]{10})/);
+              if (asinMatch) {
+                asin = asinMatch[1];
+              }
+            }
+
             products.push({
               name: p.name,
               brand: p.brand,
@@ -64,6 +73,7 @@ function extractProducts(): Product[] {
               rank: p.rank,
               pros: p.pros,
               cons: p.cons,
+              asin,
             });
           }
         }
