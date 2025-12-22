@@ -15,7 +15,7 @@ quickAnswer:
   name: "45mm Comfort Loop Rotary Cutter"
   brand: "Fiskars"
   price: 15
-  affiliateUrl: "https://www.amazon.com/s?k=Fiskars+45mm+rotary+cutter&tag=bentropy-20"
+  affiliateUrl: "https://www.amazon.com/dp/B000B7M8WU?tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Comfortable ergonomic handle"
@@ -33,7 +33,7 @@ products:
   - name: "45mm Comfort Loop Rotary Cutter"
     brand: "Fiskars"
     price: 15
-    affiliateUrl: "https://www.amazon.com/s?k=Fiskars+45mm+rotary+cutter&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B000B7M8WU?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Comfortable ergonomic handle"
@@ -50,7 +50,7 @@ products:
   - name: "45mm Ergonomic Rotary Cutter"
     brand: "OLFA"
     price: 24
-    affiliateUrl: "https://www.amazon.com/s?k=OLFA+45mm+ergonomic+rotary+cutter&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B000BNLLHW?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Exceptional blade sharpness"
@@ -67,7 +67,7 @@ products:
   - name: "45mm Rotary Cutter"
     brand: "DAFA"
     price: 8
-    affiliateUrl: "https://www.amazon.com/s?k=DAFA+45mm+rotary+cutter&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B07DQP9J6P?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Incredible value"

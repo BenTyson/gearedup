@@ -15,7 +15,7 @@ quickAnswer:
   name: "Neoprene Gaming Mat (3x5 ft)"
   brand: "Gamermats"
   price: 75
-  affiliateUrl: "https://www.amazon.com/s?k=Gamermats+neoprene+gaming+mat&tag=bentropy-20"
+  affiliateUrl: "https://www.amazon.com/s?k=neoprene+gaming+mat+3x5&tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Perfect grip for cards and components"
@@ -33,7 +33,7 @@ products:
   - name: "Neoprene Gaming Mat (3x5 ft)"
     brand: "Gamermats"
     price: 75
-    affiliateUrl: "https://www.amazon.com/s?k=Gamermats+neoprene+gaming+mat&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/s?k=neoprene+gaming+mat+3x5&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Perfect grip for cards and components"
@@ -50,7 +50,7 @@ products:
   - name: "Premium Gaming Mat (4x6 ft)"
     brand: "Inked Gaming"
     price: 95
-    affiliateUrl: "https://www.amazon.com/s?k=Inked+Gaming+neoprene+mat&tag=bentropy-20"
+    affiliateUrl: "https://www.inkedgaming.com/products/custom-xl-playmat"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Large size for big games"
@@ -68,7 +68,7 @@ products:
   - name: "Felt Gaming Mat (3x5 ft)"
     brand: "Phelps Game Tables"
     price: 45
-    affiliateUrl: "https://www.amazon.com/s?k=Gamermats+neoprene+gaming+mat&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/s?k=felt+gaming+mat+poker&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Classic casino feel"
@@ -86,7 +86,7 @@ products:
   - name: "Double-Sided Neoprene Mat (4x4 ft)"
     brand: "Mats by Mars"
     price: 110
-    affiliateUrl: "https://www.amazon.com/s?k=Gamermats+neoprene+gaming+mat&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Mats+by+Mars+neoprene&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Two surfaces (different colors/textures)"

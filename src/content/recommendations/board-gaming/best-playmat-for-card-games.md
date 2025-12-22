@@ -15,7 +15,7 @@ quickAnswer:
   name: "Play-Mat XenoSkin Edition"
   brand: "Ultimate Guard"
   price: 28
-  affiliateUrl: "https://www.amazon.com/s?k=Ultimate+Guard+playmat+XenoSkin&tag=bentropy-20"
+  affiliateUrl: "https://www.amazon.com/dp/B01N9FSRTI?tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Premium textured surface for card sliding"
@@ -33,7 +33,7 @@ products:
   - name: "Play-Mat XenoSkin Edition"
     brand: "Ultimate Guard"
     price: 28
-    affiliateUrl: "https://www.amazon.com/s?k=Ultimate+Guard+playmat+XenoSkin&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B01N9FSRTI?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Premium textured surface for card sliding"
@@ -50,7 +50,7 @@ products:
   - name: "Custom Playmat"
     brand: "Inked Gaming"
     price: 30
-    affiliateUrl: "https://www.amazon.com/s?k=Inked+Gaming+custom+playmat&tag=bentropy-20"
+    affiliateUrl: "https://www.inkedgaming.com/products/custom-playmat"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Fully customizable artwork"
@@ -68,7 +68,7 @@ products:
   - name: "Artist Series Playmat"
     brand: "Ultra Pro"
     price: 18
-    affiliateUrl: "https://www.amazon.com/s?k=Ultimate+Guard+playmat+XenoSkin&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Ultra+Pro+playmat+MTG&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Official licensed artwork"
@@ -86,7 +86,7 @@ products:
   - name: "Neoprene Card Game Mat (24x14)"
     brand: "Gamegenic"
     price: 35
-    affiliateUrl: "https://www.amazon.com/s?k=Ultimate+Guard+playmat+XenoSkin&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B084TM7TWH?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Thick 2mm neoprene"

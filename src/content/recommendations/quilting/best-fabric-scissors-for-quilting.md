@@ -12,10 +12,10 @@ publishedDate: 2025-01-15
 lastUpdated: 2025-01-15
 
 quickAnswer:
-  name: "7250 8-Inch Professional Shears"
+  name: "7250 10-Inch Professional Shears"
   brand: "Kai"
   price: 55
-  affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
+  affiliateUrl: "https://www.amazon.com/dp/B00944EWBQ?tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Exceptionally sharp Japanese steel"
@@ -30,10 +30,10 @@ quickAnswer:
   rank: "best-overall"
 
 products:
-  - name: "7250 8-Inch Professional Shears"
+  - name: "7250 10-Inch Professional Shears"
     brand: "Kai"
     price: 55
-    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B00944EWBQ?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Exceptionally sharp Japanese steel"
@@ -50,7 +50,7 @@ products:
   - name: "8-Inch Knife Edge Dressmaker Shears"
     brand: "Gingher"
     price: 35
-    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B000UU6SR4?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Classic American-made quality"
@@ -68,7 +68,7 @@ products:
   - name: "8-Inch RazorEdge Fabric Shears"
     brand: "Fiskars"
     price: 18
-    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B00GGBGJ0W?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent value"
@@ -83,10 +83,10 @@ products:
     verdict: "Perfect first pair of fabric scissors. Upgrade to Kai or Gingher once you outgrow these."
     rank: "best-budget"
 
-  - name: "N5275 10-Inch Shears"
+  - name: "N5275 11-Inch Shears"
     brand: "Kai"
     price: 75
-    affiliateUrl: "https://www.amazon.com/s?k=Kai+7250+fabric+scissors&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B00261OV92?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Larger size for yardage cutting"

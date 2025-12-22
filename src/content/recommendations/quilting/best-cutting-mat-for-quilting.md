@@ -15,7 +15,7 @@ quickAnswer:
   name: "24x36 Double-Sided Self-Healing Cutting Mat"
   brand: "OLFA"
   price: 65
-  affiliateUrl: "https://www.amazon.com/s?k=OLFA+24x36+cutting+mat+quilting&tag=bentropy-20"
+  affiliateUrl: "https://www.amazon.com/dp/B0006SDOFO?tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "True self-healing that lasts for years"
@@ -33,7 +33,7 @@ products:
   - name: "24x36 Double-Sided Self-Healing Cutting Mat"
     brand: "OLFA"
     price: 65
-    affiliateUrl: "https://www.amazon.com/s?k=OLFA+24x36+cutting+mat+quilting&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B0006SDOFO?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "True self-healing that lasts for years"
@@ -50,7 +50,7 @@ products:
   - name: "24x36 Self-Healing Cutting Mat"
     brand: "Fiskars"
     price: 45
-    affiliateUrl: "https://www.amazon.com/s?k=OLFA+24x36+cutting+mat+quilting&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B000YZASYO?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent value for the size"
@@ -67,7 +67,7 @@ products:
   - name: "18x24 Self-Healing Cutting Mat"
     brand: "ARTEZA"
     price: 15
-    affiliateUrl: "https://www.amazon.com/s?k=OLFA+24x36+cutting+mat+quilting&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B07643R6F8?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Incredible price for beginners"
@@ -85,7 +85,7 @@ products:
   - name: "36x48 Self-Healing Cutting Mat"
     brand: "Alvin"
     price: 110
-    affiliateUrl: "https://www.amazon.com/s?k=OLFA+24x36+cutting+mat+quilting&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B004CYT1H8?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Massive cutting surface"

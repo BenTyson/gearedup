@@ -15,7 +15,7 @@ quickAnswer:
   name: "Gemini Polyhedral 7-Die Set"
   brand: "Chessex"
   price: 10
-  affiliateUrl: "https://www.amazon.com/s?k=Chessex+Gemini+polyhedral+dice&tag=bentropy-20"
+  affiliateUrl: "https://www.amazon.com/dp/B000UU8M1Y?tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Industry standard quality"
@@ -33,7 +33,7 @@ products:
   - name: "Gemini Polyhedral 7-Die Set"
     brand: "Chessex"
     price: 10
-    affiliateUrl: "https://www.amazon.com/s?k=Chessex+Gemini+polyhedral+dice&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B000UU8M1Y?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Industry standard quality"
@@ -50,7 +50,7 @@ products:
   - name: "7-Piece Metal Dice Set with Box"
     brand: "Norse Foundry"
     price: 45
-    affiliateUrl: "https://www.amazon.com/s?k=Chessex+Gemini+polyhedral+dice&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B00OM9VD1U?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Satisfying heft and sound"
@@ -65,10 +65,10 @@ products:
     verdict: "The weight and sound of metal dice is unmatched. Just bring a dice tray to protect the table."
     rank: "best-premium"
 
-  - name: "Polyhedral 7-Die Set (Pound of Dice)"
+  - name: "Bag of Devouring (140 Dice)"
     brand: "Wiz Dice"
     price: 22
-    affiliateUrl: "https://www.amazon.com/s?k=Chessex+Gemini+polyhedral+dice&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B01KP4T6TQ?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Incredible value (15+ sets)"
@@ -86,7 +86,7 @@ products:
   - name: "Natural Gemstone Dice Set"
     brand: "Level Up Dice"
     price: 90
-    affiliateUrl: "https://www.amazon.com/s?k=Chessex+Gemini+polyhedral+dice&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/s?k=Level+Up+Dice+gemstone&tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Real stone (amethyst, obsidian, etc.)"

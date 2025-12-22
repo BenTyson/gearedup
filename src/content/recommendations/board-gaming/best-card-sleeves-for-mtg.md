@@ -15,7 +15,7 @@ quickAnswer:
   name: "Eclipse Gloss Standard Sleeves"
   brand: "Ultra Pro"
   price: 10
-  affiliateUrl: "https://www.amazon.com/s?k=Ultra+Pro+Eclipse+card+sleeves&tag=bentropy-20"
+  affiliateUrl: "https://www.amazon.com/dp/B08CVVLN9S?tag=bentropy-20"
   image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
   pros:
     - "Excellent shuffle feel"
@@ -33,7 +33,7 @@ products:
   - name: "Eclipse Gloss Standard Sleeves"
     brand: "Ultra Pro"
     price: 10
-    affiliateUrl: "https://www.amazon.com/s?k=Ultra+Pro+Eclipse+card+sleeves&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B08CVVLN9S?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Excellent shuffle feel"
@@ -50,7 +50,7 @@ products:
   - name: "Katana Standard Size Sleeves"
     brand: "Ultimate Guard"
     price: 13
-    affiliateUrl: "https://www.amazon.com/s?k=Ultra+Pro+Eclipse+card+sleeves&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B00J5H1DNM?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Premium shuffle feel"
@@ -67,7 +67,7 @@ products:
   - name: "Matte Standard Sleeves"
     brand: "Dragon Shield"
     price: 12
-    affiliateUrl: "https://www.amazon.com/s?k=Ultra+Pro+Eclipse+card+sleeves&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B00WX57O7M?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Legendary durability"
@@ -84,7 +84,7 @@ products:
   - name: "Pro-Matte Standard Sleeves"
     brand: "Ultra Pro"
     price: 5
-    affiliateUrl: "https://www.amazon.com/s?k=Ultra+Pro+Eclipse+card+sleeves&tag=bentropy-20"
+    affiliateUrl: "https://www.amazon.com/dp/B00SJLZ5TS?tag=bentropy-20"
     image: "https://placehold.co/400x400/e2e8f0/475569?text=Product"
     pros:
       - "Very affordable"
