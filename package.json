@@ -16,5 +16,11 @@
     "astro": "^5.16.6",
     "serve": "^14.2.5",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.89.0",
+    "commander": "^14.0.2",
+    "tsx": "^4.21.0",
+    "yaml": "^2.8.2"
   }
 }
