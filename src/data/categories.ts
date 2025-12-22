@@ -40,6 +40,14 @@ export const categories: Category[] = [
     color: 'knitting',
     icon: 'yarn',
   },
+  {
+    name: 'Home Coffee',
+    slug: 'home-coffee',
+    description: 'Grinders, brewers, and gear for coffee enthusiasts.',
+    metaDescription: 'Find the best home coffee equipment including burr grinders, pour-over makers, espresso machines, and kettles. Gear for your perfect cup.',
+    color: 'coffee',
+    icon: 'coffee',
+  },
 ];
 
 export function getCategoryBySlug(slug: string): Category | undefined {
