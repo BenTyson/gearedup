@@ -48,6 +48,14 @@ export const categories: Category[] = [
     color: 'coffee',
     icon: 'coffee',
   },
+  {
+    name: 'Photography',
+    slug: 'photography',
+    description: 'Camera gear, accessories, and tools for photographers.',
+    metaDescription: 'Find the best photography gear including tripods, camera bags, memory cards, and lighting. Equipment for hobbyists and professionals.',
+    color: 'photography',
+    icon: 'camera',
+  },
 ];
 
 export function getCategoryBySlug(slug: string): Category | undefined {
