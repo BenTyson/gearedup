@@ -14,7 +14,7 @@
 | **Hosting** | Railway (deployed) |
 | **Database** | Supabase (active - products table populated) |
 | **Affiliate Tag** | `bentropy-20` |
-| **Status** | **LIVE** - 20 recommendation pages, 79 products in DB |
+| **Status** | **LIVE** - 30 recommendation pages, 119 products in DB |
 
 ## Current Work: Database-First Architecture
 
@@ -22,10 +22,10 @@
 - **Database-first architecture implemented** - Products sourced from Supabase at build time
 - Supabase schema: `products`, `product_asins`, `recommendation_pages`, `page_products`, views
 - CLI tools: `scripts/products.ts`, `scripts/sync-pages.ts`, `scripts/extract-products.ts`
-- 79 products in database with ASINs where available
-- 20 recommendation pages across 4 categories linked via `page_products` junction table
+- 119 products in database with ASINs where available
+- 30 recommendation pages across 6 categories linked via `page_products` junction table
 - Astro fetches products from Supabase at build time (not from markdown)
-- **4 categories live**: Quilting, Board Gaming, Miniature Painting, Home Coffee
+- **6 categories live**: Quilting, Board Gaming, Miniature Painting, Home Coffee, Knitting, Photography
 
 ### ASINs Added (23 products)
 | Category | Products with Direct ASINs |
@@ -110,6 +110,8 @@ products_with_prices (view)
 | `/board-gaming/` | Board Gaming hub (5 pages) |
 | `/miniature-painting/` | Miniature Painting hub (5 pages) |
 | `/home-coffee/` | Home Coffee hub (5 pages) |
+| `/knitting/` | Knitting hub (5 pages) |
+| `/photography/` | Photography hub (5 pages) |
 
 ### Quilting Pages
 - `/quilting/best-rotary-cutter-for-beginners/`
@@ -138,6 +140,20 @@ products_with_prices (view)
 - `/home-coffee/best-electric-kettle-for-pour-over/`
 - `/home-coffee/best-espresso-machine-under-500/`
 - `/home-coffee/best-french-press/`
+
+### Knitting Pages
+- `/knitting/best-knitting-needles-for-beginners/`
+- `/knitting/best-yarn-winder/`
+- `/knitting/best-blocking-mats-for-knitting/`
+- `/knitting/best-project-bag-for-knitting/`
+- `/knitting/best-interchangeable-knitting-needle-set/`
+
+### Photography Pages
+- `/photography/best-tripod-for-beginners/`
+- `/photography/best-camera-bag-for-travel/`
+- `/photography/best-sd-card-for-photography/`
+- `/photography/best-camera-strap/`
+- `/photography/best-portable-lighting/`
 
 ## Project Structure
 
