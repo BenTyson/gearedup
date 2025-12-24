@@ -1,0 +1,121 @@
+---
+export const prerender = false;
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const error = Astro.url.searchParams.get('error');
+---
+
+<BaseLayout title="Admin Login - GearedUp" description="Admin login" noIndex={true}>
+  <div class="min-h-screen flex items-center justify-center bg-neutral-100 py-12 px-4">
+    <div class="max-w-md w-full space-y-8">
+      <div>
+        <h2 class="mt-6 text-center text-3xl font-bold text-neutral-900">
+          Admin Login
+        </h2>
+        <p class="mt-2 text-center text-sm text-neutral-600">
+          Sign in to manage GearedUp content
+        </p>
+      </div>
+
+      {error && (
+        <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          {error === 'unauthorized' ? 'You are not authorized to access the admin area.' : 'Login failed. Please try again.'}
+        </div>
+      )}
+
+      <form id="login-form" class="mt-8 space-y-6">
+        <div class="space-y-4">
+          <div>
+            <label for="email" class="block text-sm font-medium text-neutral-700">
+              Email address
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              class="mt-1 block w-full px-3 py-2 border border-neutral-300 rounded-lg shadow-sm placeholder-neutral-400 focus:outline-none focus:ring-brand-500 focus:border-brand-500"
+              placeholder="admin@example.com"
+            />
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-medium text-neutral-700">
+              Password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+              class="mt-1 block w-full px-3 py-2 border border-neutral-300 rounded-lg shadow-sm placeholder-neutral-400 focus:outline-none focus:ring-brand-500 focus:border-brand-500"
+              placeholder="••••••••"
+            />
+          </div>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span id="button-text">Sign in</span>
+            <span id="button-loading" class="hidden">Signing in...</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="text-center">
+        <a href="/" class="text-sm text-brand-600 hover:text-brand-500">
+          &larr; Back to site
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  import { createClient } from '@supabase/supabase-js';
+
+  const supabase = createClient(
+    import.meta.env.PUBLIC_SUPABASE_URL,
+    import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+  );
+
+  const form = document.getElementById('login-form') as HTMLFormElement;
+  const buttonText = document.getElementById('button-text');
+  const buttonLoading = document.getElementById('button-loading');
+  const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement).value;
+
+    buttonText?.classList.add('hidden');
+    buttonLoading?.classList.remove('hidden');
+    button.disabled = true;
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      // Redirect to admin dashboard
+      window.location.href = '/admin';
+    } catch (error: any) {
+      alert(error.message || 'Login failed');
+      buttonText?.classList.remove('hidden');
+      buttonLoading?.classList.add('hidden');
+      button.disabled = false;
+    }
+  });
+</script>

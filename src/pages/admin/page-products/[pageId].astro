@@ -1,0 +1,53 @@
+---
+export const prerender = false;
+
+import AdminLayout from '@layouts/AdminLayout.astro';
+import PageProductLinker from '@components/admin/PageProductLinker';
+import { supabase } from '@lib/supabase';
+
+const { pageId } = Astro.params;
+
+// Fetch the page
+const { data: page, error } = await supabase
+  .from('recommendation_pages')
+  .select('id, title, slug, category')
+  .eq('id', pageId)
+  .single();
+
+if (error || !page) {
+  return Astro.redirect('/admin/pages');
+}
+---
+
+<AdminLayout title={`Products: ${page.title}`} activeNav="page-products">
+  <div class="mb-6 flex items-center justify-between">
+    <div>
+      <a href="/admin/pages" class="text-sm text-brand-600 hover:text-brand-700 flex items-center gap-1 mb-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Pages
+      </a>
+      <h2 class="text-2xl font-bold text-neutral-900">{page.title}</h2>
+      <p class="text-neutral-500">/best/{page.slug}</p>
+    </div>
+
+    <div class="flex gap-3">
+      <a
+        href={`/admin/pages/${page.id}`}
+        class="px-4 py-2 border border-neutral-300 rounded-lg text-neutral-700 hover:bg-neutral-50 transition-colors"
+      >
+        Edit Page
+      </a>
+      <a
+        href={`/best/${page.slug}`}
+        target="_blank"
+        class="px-4 py-2 bg-neutral-900 text-white rounded-lg hover:bg-neutral-800 transition-colors"
+      >
+        View Live &rarr;
+      </a>
+    </div>
+  </div>
+
+  <PageProductLinker client:load pageId={page.id} pageTitle={page.title} />
+</AdminLayout>

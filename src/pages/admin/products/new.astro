@@ -1,0 +1,36 @@
+---
+export const prerender = false;
+
+import AdminLayout from '@layouts/AdminLayout.astro';
+import ProductForm from '@components/admin/ProductForm';
+import { supabase } from '@lib/supabase';
+
+// Fetch all unique categories
+const { data: products } = await supabase
+  .from('products')
+  .select('category');
+
+const categories = [...new Set(products?.map(p => p.category) || [])].sort();
+
+// Add option to create new category
+if (categories.length === 0) {
+  categories.push('uncategorized');
+}
+---
+
+<AdminLayout title="New Product" activeNav="products">
+  <div class="max-w-4xl">
+    <div class="mb-6">
+      <a href="/admin/products" class="text-sm text-brand-600 hover:text-brand-700 flex items-center gap-1">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Products
+      </a>
+    </div>
+
+    <h2 class="text-2xl font-bold text-neutral-900 mb-6">Create New Product</h2>
+
+    <ProductForm client:load categories={categories} />
+  </div>
+</AdminLayout>

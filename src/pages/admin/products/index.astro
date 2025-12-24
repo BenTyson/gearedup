@@ -1,0 +1,12 @@
+---
+export const prerender = false;
+
+import AdminLayout from '@layouts/AdminLayout.astro';
+import ProductList from '@components/admin/ProductList';
+
+const category = Astro.url.searchParams.get('category') || undefined;
+---
+
+<AdminLayout title="Products" activeNav="products">
+  <ProductList client:load initialCategory={category} />
+</AdminLayout>

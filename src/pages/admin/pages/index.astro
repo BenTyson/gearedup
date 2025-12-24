@@ -1,0 +1,12 @@
+---
+export const prerender = false;
+
+import AdminLayout from '@layouts/AdminLayout.astro';
+import PageList from '@components/admin/PageList';
+
+const category = Astro.url.searchParams.get('category') || undefined;
+---
+
+<AdminLayout title="Recommendation Pages" activeNav="pages">
+  <PageList client:load initialCategory={category} />
+</AdminLayout>

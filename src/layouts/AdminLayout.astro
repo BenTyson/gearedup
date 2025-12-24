@@ -1,0 +1,157 @@
+---
+export const prerender = false;
+
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  activeNav?: 'dashboard' | 'products' | 'pages' | 'page-products';
+}
+
+const { title, activeNav = 'dashboard' } = Astro.props;
+const user = Astro.locals.user;
+
+const navItems = [
+  { href: '/admin', label: 'Dashboard', icon: 'home', id: 'dashboard' },
+  { href: '/admin/products', label: 'Products', icon: 'box', id: 'products' },
+  { href: '/admin/pages', label: 'Pages', icon: 'file', id: 'pages' },
+];
+---
+
+<BaseLayout title={`${title} - GearedUp Admin`} description="GearedUp Admin Dashboard" noIndex={true}>
+  <div class="min-h-screen bg-neutral-100">
+    <!-- Sidebar -->
+    <div class="fixed inset-y-0 left-0 w-64 bg-neutral-900 text-white">
+      <div class="flex items-center h-16 px-6 border-b border-neutral-700">
+        <a href="/admin" class="text-xl font-bold">GearedUp Admin</a>
+      </div>
+
+      <nav class="mt-6 px-3">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`flex items-center px-3 py-2 mb-1 rounded-lg text-sm font-medium transition-colors ${
+              activeNav === item.id
+                ? 'bg-brand-600 text-white'
+                : 'text-neutral-300 hover:bg-neutral-800 hover:text-white'
+            }`}
+          >
+            {item.icon === 'home' && (
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            )}
+            {item.icon === 'box' && (
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            )}
+            {item.icon === 'file' && (
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            )}
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- User info at bottom -->
+      <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-neutral-700">
+        <div class="flex items-center justify-between">
+          <div class="text-sm">
+            <p class="text-neutral-400">Logged in as</p>
+            <p class="text-white font-medium truncate">{user?.email || 'Admin'}</p>
+          </div>
+          <button
+            id="logout-btn"
+            class="p-2 text-neutral-400 hover:text-white transition-colors"
+            title="Logout"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="ml-64">
+      <!-- Top bar -->
+      <header class="h-16 bg-white border-b border-neutral-200 flex items-center justify-between px-8">
+        <h1 class="text-xl font-semibold text-neutral-900">{title}</h1>
+        <div class="flex items-center gap-4">
+          <button
+            id="rebuild-btn"
+            class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            Publish Changes
+          </button>
+          <a
+            href="/"
+            target="_blank"
+            class="px-4 py-2 text-sm font-medium text-neutral-600 border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors"
+          >
+            View Site &rarr;
+          </a>
+        </div>
+      </header>
+
+      <!-- Page content -->
+      <main class="p-8">
+        <slot />
+      </main>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  import { createClient } from '@supabase/supabase-js';
+
+  const supabase = createClient(
+    import.meta.env.PUBLIC_SUPABASE_URL,
+    import.meta.env.PUBLIC_SUPABASE_ANON_KEY
+  );
+
+  // Logout handler
+  document.getElementById('logout-btn')?.addEventListener('click', async () => {
+    await supabase.auth.signOut();
+    window.location.href = '/admin/login';
+  });
+
+  // Rebuild handler
+  document.getElementById('rebuild-btn')?.addEventListener('click', async () => {
+    if (!confirm('This will rebuild and deploy the site. Continue?')) {
+      return;
+    }
+
+    const btn = document.getElementById('rebuild-btn') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Rebuilding...';
+
+    try {
+      const res = await fetch('/api/rebuild', { method: 'POST' });
+      const data = await res.json();
+
+      if (res.ok) {
+        alert('Rebuild triggered! The site will update in 2-3 minutes.');
+      } else {
+        alert(data.error || 'Failed to trigger rebuild');
+      }
+    } catch (error) {
+      alert('Failed to trigger rebuild');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+        Publish Changes
+      `;
+    }
+  });
+</script>
