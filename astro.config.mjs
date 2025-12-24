@@ -20,7 +20,8 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   server: {
-    port: 4488,
+    host: true,
+    port: parseInt(process.env.PORT || '4488'),
   },
   build: {
     format: 'directory',
