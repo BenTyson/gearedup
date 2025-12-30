@@ -11,13 +11,13 @@
 | **Project** | GearedUp |
 | **Tagline** | "Gear up for your hobby" |
 | **What** | Curated "best X for Y" recommendations for hobby gear |
-| **Stack** | Astro 5.x + Tailwind 4.x + TypeScript |
+| **Stack** | Astro 5.x + React + Tailwind 4.x + TypeScript + Supabase |
 | **Port** | 4488 |
-| **Hosting** | Railway |
-| **Database** | Supabase (future) |
+| **Hosting** | Railway (Node adapter for SSR) |
+| **Database** | Supabase (products, pages, auth) |
 | **Revenue** | Affiliate links (Amazon, specialty retailers) |
 | **Target** | $1-3K/month |
-| **Status** | MVP Complete - Content Phase |
+| **Status** | Live with Admin Dashboard |
 
 ---
 
@@ -57,43 +57,66 @@ GearedUp is a curated recommendation site targeting hobbyists searching for gear
 
 | Layer | Choice | Rationale |
 |-------|--------|-----------|
-| **Framework** | Astro 5.x | SSG, fast, SEO-optimized |
+| **Framework** | Astro 5.x | SSG + SSR hybrid |
+| **UI Islands** | React 19 | Interactive admin components |
 | **Styling** | Tailwind 4.x | Modern, utility-first |
-| **Hosting** | Railway | User preference, port 4488 |
-| **Database** | Supabase | Future price tracking |
-| **Analytics** | Plausible | Privacy-focused (future) |
+| **Hosting** | Railway | Node adapter for SSR |
+| **Database** | Supabase | Products, pages, auth |
+| **Auth** | Supabase Auth | Email/password for admin |
 
 ### Project Structure
 
 ```
 gearedup/
 ├── src/
-│   ├── content/
-│   │   ├── config.ts              # Content collection schema
-│   │   └── recommendations/       # Markdown content pages
-│   │       ├── quilting/
-│   │       └── board-gaming/
 │   ├── components/
-│   │   ├── products/              # ProductCard, QuickAnswer, ComparisonTable
-│   │   ├── layout/                # Header, Footer
-│   │   ├── seo/                   # FAQSchema
-│   │   └── ui/                    # CategoryGrid, FAQAccordion
+│   │   ├── admin/               # React components for admin UI
+│   │   │   ├── ProductList.tsx
+│   │   │   ├── ProductForm.tsx
+│   │   │   ├── PageList.tsx
+│   │   │   ├── PageForm.tsx
+│   │   │   └── PageProductLinker.tsx
+│   │   ├── products/            # ProductCard, QuickAnswer, ComparisonTable
+│   │   ├── layout/              # Header, Footer
+│   │   └── ui/                  # CategoryGrid, FAQAccordion
 │   ├── layouts/
 │   │   ├── BaseLayout.astro
-│   │   ├── BestXForYLayout.astro
-│   │   └── CategoryHubLayout.astro
+│   │   ├── AdminLayout.astro    # Admin page wrapper with sidebar
+│   │   └── BestXForYLayout.astro
+│   ├── lib/
+│   │   ├── supabase.ts          # Public Supabase client
+│   │   ├── supabase-admin.ts    # Server-side Supabase client
+│   │   └── products.ts          # Product fetching + transformation
+│   ├── middleware/
+│   │   └── index.ts             # Auth protection for /admin/*
 │   ├── pages/
 │   │   ├── index.astro
 │   │   ├── about.astro
+│   │   ├── admin/               # Admin dashboard (SSR)
+│   │   │   ├── index.astro
+│   │   │   ├── login.astro
+│   │   │   ├── products/
+│   │   │   ├── pages/
+│   │   │   └── page-products/
+│   │   ├── api/                 # API routes
+│   │   │   ├── auth/
+│   │   │   ├── products/
+│   │   │   ├── pages/
+│   │   │   ├── page-products/
+│   │   │   └── rebuild/
 │   │   ├── [category]/index.astro
 │   │   └── [...slug].astro
-│   ├── data/categories.ts
+│   ├── content/recommendations/
 │   └── styles/global.css
+├── scripts/
+│   ├── products.ts              # CLI for product management
+│   ├── sync-pages.ts            # Sync pages to DB
+│   └── extract-products.ts      # Extract from markdown
+├── supabase/migrations/
 ├── public/images/products/
 ├── docs/
 ├── astro.config.mjs
-├── railway.json
-├── tsconfig.json
+├── nixpacks.toml
 └── package.json
 ```
 
@@ -103,6 +126,7 @@ gearedup/
 npm run dev      # Dev server at http://localhost:4488
 npm run build    # Production build
 npm run preview  # Preview production build
+railway up       # Deploy to Railway
 ```
 
 ### URL Structure
@@ -111,8 +135,10 @@ npm run preview  # Preview production build
 /                                    # Homepage with category grid
 /quilting/                           # Category hub
 /quilting/best-rotary-cutter-for-beginners/  # Recommendation page
-/board-gaming/                       # Category hub
-/board-gaming/best-card-sleeves-for-mtg/     # Recommendation page
+/admin/                              # Admin dashboard (auth required)
+/admin/products                      # Manage products
+/admin/pages                         # Manage recommendation pages
+/admin/page-products/[id]            # Link products to pages
 /about/                              # About/methodology
 ```
 
@@ -120,33 +146,53 @@ npm run preview  # Preview production build
 
 ## 4. Content Model
 
-### Data Schema (src/content/config.ts)
+### Database Schema (Supabase)
 
-```typescript
-interface Product {
-  name: string;
-  brand: string;
-  price: number;
-  affiliateUrl: string;
-  image: string;
-  pros: string[];
-  cons: string[];
-  bestFor: string;
-  verdict: string;
-  rank?: 'best-overall' | 'best-budget' | 'best-premium' | 'runner-up';
-}
+```sql
+-- Products table
+products (
+  id uuid PRIMARY KEY,
+  slug text UNIQUE,
+  name text,
+  brand text,
+  category text,
+  price numeric,
+  original_price numeric,
+  amazon_url text,
+  image_url text,
+  rating numeric,
+  review_count integer,
+  description text,
+  features text[],
+  pros text[],
+  cons text[],
+  asin text,
+  created_at timestamptz,
+  updated_at timestamptz
+)
 
-interface Recommendation {
-  title: string;
-  metaDescription: string;
-  category: string;
-  publishedDate: Date;
-  lastUpdated: Date;
-  quickAnswer: Product;
-  products: Product[];
-  methodology: string;
-  faqs: Array<{ question: string; answer: string }>;
-}
+-- Recommendation pages table
+recommendation_pages (
+  id uuid PRIMARY KEY,
+  slug text UNIQUE,
+  title text,
+  category text,
+  intro text,
+  buyers_guide text,
+  meta_description text,
+  created_at timestamptz,
+  updated_at timestamptz
+)
+
+-- Junction table for page-product relationships
+page_products (
+  id uuid PRIMARY KEY,
+  page_id uuid REFERENCES recommendation_pages,
+  product_id uuid REFERENCES products,
+  display_order integer,
+  is_featured boolean,
+  custom_description text
+)
 ```
 
 ### Page Types
@@ -161,23 +207,25 @@ interface Recommendation {
 
 ## 5. Hobby Categories
 
-### Tier 1: Launch (Active)
+### Active Categories
 
-| Category | Slug | Status |
-|----------|------|--------|
-| Quilting & Sewing | `quilting` | 1 page |
-| Board Gaming | `board-gaming` | 1 page |
-| Miniature Painting | `miniature-painting` | Hub only |
-| Knitting | `knitting` | Hub only |
+| Category | Slug | Pages | Products |
+|----------|------|-------|----------|
+| Quilting & Sewing | `quilting` | 5 | ~20 |
+| Board Gaming | `board-gaming` | 5 | ~20 |
+| Miniature Painting | `miniature-painting` | 5 | ~20 |
+| Home Coffee | `home-coffee` | 5 | ~20 |
+| Knitting | `knitting` | 5 | ~20 |
+| Photography | `photography` | 5 | ~19 |
 
-### Tier 2: Expansion (Future)
+### Future Categories
 
-- Mountaineering & Hiking (Summit58 synergy)
 - Woodworking
 - Resin Crafts
 - Drawing & Illustration
 - Calligraphy & Journaling
 - Tabletop RPG
+- Mountaineering & Hiking
 
 ---
 
@@ -193,29 +241,62 @@ interface Recommendation {
 - [x] Core components (ProductCard, QuickAnswer, ComparisonTable)
 - [x] Homepage with category grid
 - [x] Dynamic routing
-- [x] 2 sample recommendation pages
 
-### Phase 2: Content (IN PROGRESS)
+### Phase 2: Content ✅ COMPLETE
 
-- [ ] Research real products for pilot pages
+- [x] 30 recommendation pages across 6 categories
+- [x] 119 products in Supabase database
+- [x] Database-first architecture
+- [x] Deployed to Railway
+- [x] Amazon Associates applied
+
+### Phase 3: Admin Dashboard ✅ COMPLETE
+
+- [x] Supabase Auth integration
+- [x] Auth middleware for /admin/* routes
+- [x] Admin layout with sidebar navigation
+- [x] Product CRUD (list, create, edit, delete)
+- [x] Page CRUD (list, create, edit, delete)
+- [x] Page-product linking with drag-drop reordering
+- [x] Featured product support
+- [x] Rebuild trigger API endpoint
+- [x] React islands for interactive UI
+
+### Phase 4: Scale (Future)
+
+- [ ] PA-API integration for real-time prices
 - [ ] Add real product images
-- [ ] Create 8 remaining pilot pages:
-  - Quilting: cutting mat, sewing machine, scissors, ruler set
-  - Board Gaming: storage, playmat, dice, table topper
-- [ ] Deploy to Railway
-- [ ] Apply for Amazon Associates
-
-### Phase 3: Scale (Future)
-
-- [ ] Expand to 30+ pages
-- [ ] Add gift guide pages
-- [ ] Implement Supabase for price tracking
-- [ ] Add specialty affiliate programs
-- [ ] FAQ schema markup optimization
+- [ ] Expand to more categories
+- [ ] Gift guide pages
+- [ ] Analytics integration
 
 ---
 
-## 7. Affiliate Strategy
+## 7. Admin Dashboard
+
+### Features
+
+| Feature | Description |
+|---------|-------------|
+| **Authentication** | Supabase Auth with email/password |
+| **Dashboard** | Stats overview (products, pages, categories) |
+| **Product CRUD** | Full management with filtering by category |
+| **Page CRUD** | Manage recommendation pages with markdown support |
+| **Page-Product Linking** | Drag-drop reordering, featured products |
+| **Publish Changes** | Trigger Railway rebuild via deploy hook |
+
+### Environment Variables
+
+```
+PUBLIC_SUPABASE_URL=https://jhbqynpgdfkvsfeydqoo.supabase.co
+PUBLIC_SUPABASE_ANON_KEY=<anon key>
+ADMIN_EMAILS=admin@example.com
+RAILWAY_DEPLOY_HOOK_URL=<from Railway Settings>
+```
+
+---
+
+## 8. Affiliate Strategy
 
 | Partner | Commission | Use For |
 |---------|------------|---------|
@@ -230,7 +311,7 @@ interface Recommendation {
 
 ---
 
-## 8. SEO Strategy
+## 9. SEO Strategy
 
 ### Target Keywords
 
@@ -250,41 +331,29 @@ Format: `best [product] for [modifier]`
 
 ---
 
-## 9. Sister Site Ecosystem
-
-```
-                    ┌──────────────┐
-                    │   GearedUp   │ ← Central hub
-                    │ (all hobbies)│
-                    └──────┬───────┘
-                           │
-         ┌─────────────────┼─────────────────┐
-         │                 │                 │
-         ▼                 ▼                 ▼
-  ┌────────────┐   ┌────────────┐   ┌────────────┐
-  │  Summit58  │   │ Good Game  │   │  CraftCalc │
-  │  (14ers)   │   │  (boards)  │   │  (crafts)  │
-  └────────────┘   └────────────┘   └────────────┘
-```
-
-Cross-linking boosts SEO for all sites.
-
----
-
 ## 10. Session Log
+
+### 2025-12-24 - Admin Dashboard Complete
+- Implemented full admin dashboard with Supabase Auth
+- Added React components for product/page management
+- Implemented drag-drop page-product linking
+- Deployed with Node adapter for SSR
+
+### 2025-12-22 - Categories Expanded
+- Added 4 new categories: Miniature Painting, Home Coffee, Knitting, Photography
+- Now at 30 pages across 6 categories
+- 119 products in database
+
+### 2025-12-21 - Database-First Architecture
+- Migrated to Supabase database
+- Created CLI tools for product management
+- Added ASINs to products
 
 ### 2025-12-18 - MVP Complete
 - Initialized Astro 5.x + Tailwind 4.x project
-- Configured for Railway (port 4488)
 - Created all core components and layouts
 - Built homepage, about page, category hubs
-- Created 2 sample recommendation pages with placeholder content
-- Project builds and runs successfully
-
-### 2025-12-15 - Project Created
-- Created comprehensive planning document
-- Defined 4-phase implementation plan
-- Selected pilot categories: Quilting + Board Gaming
+- Created sample recommendation pages
 
 ---
 
@@ -296,6 +365,7 @@ Cross-linking boosts SEO for all sites.
 - Use comparison tables
 - Be honest about pros AND cons
 - Include "last updated" dates
+- Use the admin dashboard for content management
 
 ### Don't
 - Write fluff to hit word counts
@@ -303,12 +373,13 @@ Cross-linking boosts SEO for all sites.
 - Forget affiliate disclosures
 - Ignore mobile experience
 
-### Adding Content
+### Adding Content via Admin
 
-1. Create markdown file in `src/content/recommendations/[category]/`
-2. Follow schema in `src/content/config.ts`
-3. Add images to `public/images/products/`
-4. Page auto-routes based on file path
+1. Log in at `/admin/login`
+2. Create products at `/admin/products/new`
+3. Create pages at `/admin/pages/new`
+4. Link products to pages at `/admin/page-products/[pageId]`
+5. Click "Publish Changes" to trigger rebuild
 
 ---
 
@@ -318,13 +389,13 @@ Cross-linking boosts SEO for all sites.
 
 | File | Purpose |
 |------|---------|
-| `src/content/config.ts` | Content collection types |
-| `src/layouts/BestXForYLayout.astro` | Main page template |
-| `src/components/products/ProductCard.astro` | Product display |
-| `src/data/categories.ts` | Category definitions |
-| `src/styles/global.css` | Tailwind theme |
-| `astro.config.mjs` | Astro config (port 4488) |
-| `railway.json` | Railway deployment config |
+| `src/lib/supabase.ts` | Public Supabase client |
+| `src/lib/supabase-admin.ts` | Server-side Supabase client |
+| `src/middleware/index.ts` | Auth middleware for admin |
+| `src/layouts/AdminLayout.astro` | Admin page layout |
+| `src/components/admin/*.tsx` | React admin components |
+| `astro.config.mjs` | Astro config (Node adapter) |
+| `nixpacks.toml` | Railway deployment |
 
 ### Design Tokens
 
@@ -333,9 +404,14 @@ Cross-linking boosts SEO for all sites.
 - Board Gaming: violet
 - Miniatures: amber
 - Knitting: rose
+- Coffee: orange
+- Photography: blue
 
 ### Links
 
+- [Live Site](https://gearedup-production.up.railway.app)
+- [Admin Dashboard](https://gearedup-production.up.railway.app/admin)
+- [Railway Dashboard](https://railway.com/project/318fb22c-ac73-40bd-942c-105187b3d098)
+- [Supabase Dashboard](https://supabase.com/dashboard/project/jhbqynpgdfkvsfeydqoo)
 - [Astro Docs](https://docs.astro.build)
 - [Tailwind 4 Docs](https://tailwindcss.com)
-- [Amazon Associates](https://affiliate-program.amazon.com)
